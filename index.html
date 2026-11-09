@@ -141,7 +141,7 @@ footer { position: relative; height: clamp(230px, 34vw, 340px); margin-top: auto
 <script>
 (function () {
   // Cole aqui o endereço do App da Web do Apps Script (termina em /exec):
-  const SCRIPT_URL = "";
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz9Qm578Oz_4vkEOOYtVqohTpU70jwUYErEeWCNRQBcjWFkrIcXzxnPcNlbPgnCl4GR/exec";
   const btns = [...document.querySelectorAll(".tam")];
   const nome = document.getElementById("fr-nome");
   const ok = document.getElementById("fr-ok");
@@ -158,8 +158,11 @@ footer { position: relative; height: clamp(230px, 34vw, 340px); margin-top: auto
       if (fim && escolhido === b.dataset.t) { escolhido = null; b.setAttribute("aria-pressed", "false"); }
     });
   }
-  async function chama(params) {
-    const r = await fetch(SCRIPT_URL + "https://script.google.com/macros/s/AKfycbz9Qm578Oz_4vkEOOYtVqohTpU70jwUYErEeWCNRQBcjWFkrIcXzxnPcNlbPgnCl4GR/exec" + new URLSearchParams(params));
+  async function chama(params = {}) {
+    const url = new URL(SCRIPT_URL);
+    Object.entries(params).forEach(([chave, valor]) => url.searchParams.set(chave, valor));
+    const r = await fetch(url.toString(), { cache: "no-store" });
+    if (!r.ok) throw new Error("Falha ao acessar a lista: HTTP " + r.status);
     return r.json();
   }
   btns.forEach(b => b.addEventListener("click", () => {
@@ -182,7 +185,13 @@ footer { position: relative; height: clamp(230px, 34vw, 340px); margin-top: auto
     } finally { ok.disabled = false; }
   });
   if (!SCRIPT_URL) { btns.forEach(b => b.querySelector("small").textContent = "em breve"); return; }
-  chama({}).then(r => pinta(r.tamanhos)).catch(() => { msg.textContent = "Não consegui carregar a lista agora."; });
+  chama({}).then(r => {
+    if (!r || !r.tamanhos) throw new Error("Resposta da lista sem tamanhos");
+    pinta(r.tamanhos);
+  }).catch(() => {
+    btns.forEach(b => { b.disabled = true; b.querySelector("small").textContent = "indisponível"; });
+    msg.textContent = "Não consegui carregar a lista agora.";
+  });
 })();
 </script>
 </body>
