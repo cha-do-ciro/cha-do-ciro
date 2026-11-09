@@ -159,7 +159,7 @@ footer { position: relative; height: clamp(230px, 34vw, 340px); margin-top: auto
     });
   }
   async function chama(params) {
-    const r = await fetch(SCRIPT_URL + "?" + new URLSearchParams(params));
+    const r = await fetch(SCRIPT_URL + "https://script.google.com/macros/s/AKfycbz9Qm578Oz_4vkEOOYtVqohTpU70jwUYErEeWCNRQBcjWFkrIcXzxnPcNlbPgnCl4GR/exec" + new URLSearchParams(params));
     return r.json();
   }
   btns.forEach(b => b.addEventListener("click", () => {
