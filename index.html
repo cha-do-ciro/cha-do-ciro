@@ -82,7 +82,7 @@ footer { position: relative; height: clamp(230px, 34vw, 340px); margin-top: auto
 .fraldas { max-width: 560px; margin: 44px auto 0; text-align: center; }
 .fraldas h2 { font-family: Pacifico, "Brush Script MT", cursive; font-weight: 400; font-size: clamp(1.7rem, 5vw, 2.3rem); margin: 0 0 .2em; }
 .fraldas p { margin: .3em auto; max-width: 40ch; color: var(--muted); }
-.tams { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 20px 0; }
+.tams { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 20px 0; }
 .tam { border: 3px solid var(--line); background: var(--surface); border-radius: 20px; padding: 12px 4px; font: inherit; color: var(--ink); cursor: pointer; }
 .tam b { display: block; font-size: 1.5rem; }
 .tam small { font-size: .82rem; color: var(--muted); }
@@ -96,6 +96,96 @@ footer { position: relative; height: clamp(230px, 34vw, 340px); margin-top: auto
 .reservar:disabled { opacity: .5; cursor: wait; }
 .msg { min-height: 1.6em; font-weight: 500; color: var(--ink) !important; }
 @media (max-width: 420px) { .tams { grid-template-columns: repeat(2, 1fr); } }
+
+/* Opção Pix integrada à identidade do Bloquinho do Fundo do Mar */
+.pix { max-width: 560px; margin: 28px auto 8px; padding: 24px 22px;
+  background: var(--surface); border: 3px dashed var(--line); border-radius: 28px;
+  text-align: center; }
+.pix h2 { font-family: Pacifico, "Brush Script MT", cursive; font-weight: 400;
+  font-size: clamp(1.7rem, 5vw, 2.3rem); margin: 0 0 .2em; }
+.pix p { color: var(--muted); margin: 8px auto; max-width: 45ch; }
+.pix .pix-chave { display: block; margin: 14px auto 12px; padding: 12px 15px;
+  width: max-content; max-width: 100%; overflow-wrap: anywhere;
+  border-radius: 16px; background: var(--bg); font-size: clamp(1.05rem, 3.4vw, 1.2rem);
+  font-weight: 600; color: var(--ink); letter-spacing: .02em; }
+.pix button { border: 0; border-radius: 999px; background: var(--teal); color: #fff;
+  font: inherit; font-weight: 600; cursor: pointer; padding: 12px 25px; }
+.pix button:hover { filter: brightness(.94); }
+.pix button:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
+.pix .pix-msg { min-height: 1.7em; font-size: .9rem; font-weight: 500; color: var(--ink); }
+
+/* Layout responsivo da lista de presentes do Chá do Ciro */
+html { scroll-behavior: smooth; }
+main { width: 100%; }
+.hero { width: 100%; }
+.atalhos { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; margin: 24px auto 8px; max-width: 620px; }
+.atalhos a { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; padding: 10px 18px; border-radius: 999px; text-decoration: none; font-weight: 600; background: var(--teal); color: #fff; }
+.atalhos a:nth-child(2) { background: var(--surface); color: var(--ink); border: 2px solid var(--line); }
+.atalhos a:focus-visible, .card-link:focus-visible { outline: 3px solid var(--sun); outline-offset: 4px; }
+.presentes { max-width: 860px; margin: 36px auto 0; scroll-margin-top: 20px; text-align: left; }
+.presente-intro { text-align: center; max-width: 680px; margin: 0 auto 22px; }
+.secao-selo { display: inline-block; border-radius: 999px; padding: 6px 14px; background: #B5E8EF; color: #07365A; font-size: .77rem; letter-spacing: .08em; font-weight: 600; text-transform: uppercase; }
+.presentes h2 { font-family: Pacifico, "Brush Script MT", cursive; font-weight: 400; font-size: clamp(1.85rem, 5.5vw, 2.6rem); margin: 8px auto 10px; line-height: 1.3; }
+.presente-intro > p { margin: 7px auto; color: var(--muted); }
+.presente-intro .presente-aviso { margin-top: 14px; padding: 12px 16px; border-radius: 14px; background: var(--surface); font-size: .87rem; }
+.presentes-grade { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 15px; align-items: stretch; }
+.presente-card { min-width: 0; padding: 19px 20px 18px; border-radius: 22px; border: 2px solid var(--line); background: var(--surface); display: flex; flex-direction: column; gap: 7px; }
+.presente-cabecalho { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 7px; }
+.presente-categoria { color: var(--teal); font-size: .76rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+.presente-qt { background: var(--sun); color: #07365A; border-radius: 999px; padding: 5px 10px; font-size: .78rem; font-weight: 600; }
+.presente-card h3 { margin: 6px 0 0; font-size: clamp(1.03rem, 2.5vw, 1.24rem); line-height: 1.4; }
+.presente-card p { margin: 0; color: var(--muted); font-size: .92rem; overflow-wrap: anywhere; }
+.card-link { align-self: flex-start; display: inline-flex; align-items: center; min-height: 42px; margin-top: auto; padding-top: 8px; text-decoration: underline; text-underline-offset: 3px; font-size: .9rem; font-weight: 600; color: var(--teal); }
+.presentes-rodape { text-align: center; max-width: 60ch; margin: 19px auto 0; color: var(--muted); font-size: .94rem; }
+.fraldas, .pix { scroll-margin-top: 16px; }
+.fraldas { padding: 18px 20px 16px; background: var(--surface); border: 3px dashed var(--line); border-radius: 28px; }
+.fraldas input, .reservar, .pix button { min-height: 48px; font-size: 16px; }
+@media (max-width: 640px) {
+  main { padding: 0 14px 32px; }
+  .hero { padding: 22px 12px 0; }
+  .fish { width: min(300px, 76vw); }
+  .info { margin-top: 22px; }
+  .presentes { margin-top: 26px; }
+  .presentes-grade { grid-template-columns: minmax(0,1fr); gap: 12px; }
+  .presente-card { padding: 17px; }
+  .presente-card h3 { font-size: 1.13rem; }
+  .fraldas { margin-top: 28px; }
+  .pix { margin-top: 22px; }
+}
+@media (max-width: 420px) {
+  .atalhos { display: grid; grid-template-columns: minmax(0,1fr); max-width: 310px; }
+  .atalhos a { width: 100%; }
+  .info { padding: 18px 16px; }
+  .info dl { grid-template-columns: 1fr; gap: 2px; }
+  .info dd { margin-bottom: 8px; }
+  .info dd.big { white-space: normal; }
+  .presente-intro .presente-aviso { text-align: left; }
+  .fraldas { padding: 18px 13px; }
+  .linha { flex-direction: column; align-items: stretch; }
+  .fraldas input { flex: 0 0 auto; width: 100%; }
+  .reservar { width: 100%; }
+  .pix { padding: 20px 12px; }
+  .pix button { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+
+/* Reservas integradas com a planilha: cada cartão representa um tipo de presente. */
+.reserva-identificacao { margin: 18px auto 24px; padding: 18px; max-width: 690px; border: 3px dashed var(--line); border-radius: 23px; background: var(--surface); }
+.reserva-identificacao label { display: block; margin-bottom: 8px; color: var(--ink); font-weight: 600; }
+.reserva-nome-linha { display: flex; gap: 10px; align-items: stretch; }
+.reserva-nome-linha input { flex: 1 1 230px; min-width: 0; min-height: 50px; border: 2px solid var(--line); background: var(--bg); color: var(--ink); border-radius: 12px; font: inherit; font-size: 16px; padding: 10px 14px; }
+.reserva-nome-linha input:focus-visible, .presente-reservar:focus-visible, .atualizar-vagas:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+.atualizar-vagas { flex: 0 0 auto; border: 2px solid var(--teal); border-radius: 12px; background: transparent; color: var(--ink); font: inherit; font-weight: 600; padding: 10px 16px; cursor: pointer; min-height: 50px; }
+.reserva-status { margin: 10px 0 0; color: var(--muted); font-size: .91rem; min-height: 1.5em; }
+.presente-disponibilidade { font-weight: 600; color: var(--ink) !important; margin-top: 9px !important; }
+.presente-card.esgotado { opacity: .75; }
+.presente-card.esgotado .presente-disponibilidade { color: #B34837 !important; }
+.presente-reservar { width: 100%; min-height: 49px; border-radius: 13px; border: 0; background: var(--teal); color: #fff; padding: 11px 15px; font: inherit; font-weight: 600; font-size: 16px; cursor: pointer; margin-top: 7px; }
+.presente-reservar:disabled { opacity: .55; cursor: not-allowed; }
+.card-link { margin-top: auto; }
+@media(max-width: 540px){ .reserva-nome-linha { flex-direction: column; } .atualizar-vagas { width: 100%; } .reserva-identificacao { padding: 14px; } }
+
 </style>
 </head>
 <body>
@@ -105,6 +195,11 @@ footer { position: relative; height: clamp(230px, 34vw, 340px); margin-top: auto
   <h1>Bloquinho do<br>Fundo do Mar</h1>
   <p class="sub">Chá do Ciro</p>
   <p class="lead">Venha celebrar com a gente esse mergulho na nova fase!</p>
+  <nav class="atalhos" aria-label="Ir para as opções de presente">
+    <a href="#presentes">Ver lista de presentes</a>
+    <a href="#pix">Presentear por Pix</a>
+  </nav>
+
 </header>
 <main>
   <section class="info" aria-label="Quando e onde">
@@ -115,22 +210,93 @@ footer { position: relative; height: clamp(230px, 34vw, 340px); margin-top: auto
     </dl>
   </section>
   <p class="note">A confirmação de presença chega aqui em breve.</p>
-  <section class="fraldas" aria-labelledby="fr-t">
-    <h2 id="fr-t">Lista de fraldas</h2>
-    <p>A Lais prefere Pampers Confort Sec. Escolha o tamanho que você vai levar, assim ninguém repete.</p>
-    <div class="tams" role="group" aria-label="Tamanhos">
-      <button class="tam" data-t="RN" aria-pressed="false"><b>RN</b><small>carregando</small></button>
-      <button class="tam" data-t="P" aria-pressed="false"><b>P</b><small>carregando</small></button>
-      <button class="tam" data-t="M" aria-pressed="false"><b>M</b><small>carregando</small></button>
-      <button class="tam" data-t="G" aria-pressed="false"><b>G</b><small>carregando</small></button>
-    </div>
-    <div class="linha">
-      <input id="fr-nome" type="text" maxlength="60" placeholder="Seu nome completo" aria-label="Seu nome completo" autocomplete="name">
-      <button class="reservar" id="fr-ok">Reservar</button>
-    </div>
-    <p class="msg" id="fr-msg" role="status" aria-live="polite"></p>
-  </section>
 
+  <section class="presentes" id="presentes" aria-labelledby="presentes-t">
+  <div class="presente-intro">
+    <span class="secao-selo">Lista de presentes do Ciro</span>
+    <h2 id="presentes-t">Escolha um carinho para o Ciro</h2>
+    <p>São <strong>56 oportunidades de presentear</strong> em oito tipos de presente. Cada reserva corresponde a <strong>1 pacote, 1 kit ou 1 unidade</strong>, conforme a descrição.</p>
+    <p class="presente-aviso">As vagas são compartilhadas. Quando todas as unidades de um produto forem reservadas, ele aparecerá como esgotado para os próximos convidados.</p>
+  </div>
+  <div class="reserva-identificacao">
+    <label for="nome-convidado">Seu nome completo</label>
+    <div class="reserva-nome-linha">
+      <input id="nome-convidado" maxlength="60" autocomplete="name" placeholder="Nome de quem vai presentear" required>
+      <button type="button" class="atualizar-vagas" id="atualizar-vagas">Atualizar vagas</button>
+    </div>
+    <p id="status-reservas" role="status" aria-live="polite" class="reserva-status">Consultando os presentes disponíveis...</p>
+  </div>
+  <div class="presentes-grade">
+    <article class="presente-card" data-id="FR_RN">
+       <div class="presente-cabecalho"><span class="presente-categoria">Fraldas</span><span class="presente-qt">8 pacotes</span></div>
+       <h3>Fralda Pampers Confort Sec RN</h3>
+       <p>36 fraldas por pacote · 288 fraldas no total</p>
+       <p class="presente-disponibilidade" data-saldo="FR_RN">Consultando disponibilidade...</p>
+       
+       <button type="button" class="presente-reservar" data-reservar="FR_RN" disabled>Carregando reserva...</button>
+    </article><article class="presente-card" data-id="FR_P">
+       <div class="presente-cabecalho"><span class="presente-categoria">Fraldas</span><span class="presente-qt">6 pacotes</span></div>
+       <h3>Fralda Pampers Confort Sec P</h3>
+       <p>72 fraldas por pacote · 432 fraldas no total</p>
+       <p class="presente-disponibilidade" data-saldo="FR_P">Consultando disponibilidade...</p>
+       
+       <button type="button" class="presente-reservar" data-reservar="FR_P" disabled>Carregando reserva...</button>
+    </article><article class="presente-card" data-id="GRANADO">
+       <div class="presente-cabecalho"><span class="presente-categoria">Higiene</span><span class="presente-qt">6 unidades</span></div>
+       <h3>Granado Água de Limpeza Bebê, Peles Sensíveis, 500 ml</h3>
+       <p>Frasco de 500 ml, para peles sensíveis.</p>
+       <p class="presente-disponibilidade" data-saldo="GRANADO">Consultando disponibilidade...</p>
+       <a class="card-link" href="https://a.co/d/0is0hP3c" target="_blank" rel="noopener noreferrer">Ver produto na Amazon <span aria-hidden="true">↗</span></a>
+       <button type="button" class="presente-reservar" data-reservar="GRANADO" disabled>Carregando reserva...</button>
+    </article><article class="presente-card" data-id="ALGODAO">
+       <div class="presente-cabecalho"><span class="presente-categoria">Higiene</span><span class="presente-qt">12 pacotes</span></div>
+       <h3>Algodão quadrado</h3>
+       <p>100 quadrados por pacote · 1.200 unidades no total</p>
+       <p class="presente-disponibilidade" data-saldo="ALGODAO">Consultando disponibilidade...</p>
+       <a class="card-link" href="https://a.co/d/0hyyQZiv" target="_blank" rel="noopener noreferrer">Ver produto na Amazon <span aria-hidden="true">↗</span></a>
+       <button type="button" class="presente-reservar" data-reservar="ALGODAO" disabled>Carregando reserva...</button>
+    </article><article class="presente-card" data-id="LENCO_RN">
+       <div class="presente-cabecalho"><span class="presente-categoria">Higiene</span><span class="presente-qt">6 kits</span></div>
+       <h3>Lenços umedecidos Johnson’s Baby RN</h3>
+       <p>1 reserva = 1 kit com 192 lenços · 1.152 lenços no total</p>
+       <p class="presente-disponibilidade" data-saldo="LENCO_RN">Consultando disponibilidade...</p>
+       <a class="card-link" href="https://a.co/d/0cF6d8ZC" target="_blank" rel="noopener noreferrer">Ver produto na Amazon <span aria-hidden="true">↗</span></a>
+       <button type="button" class="presente-reservar" data-reservar="LENCO_RN" disabled>Carregando reserva...</button>
+    </article><article class="presente-card" data-id="BODY_RN">
+       <div class="presente-cabecalho"><span class="presente-categoria">Roupinhas</span><span class="presente-qt">6 unidades</span></div>
+       <h3>Body RN</h3>
+       <p>1 body tamanho recém-nascido por reserva.</p>
+       <p class="presente-disponibilidade" data-saldo="BODY_RN">Consultando disponibilidade...</p>
+       
+       <button type="button" class="presente-reservar" data-reservar="BODY_RN" disabled>Carregando reserva...</button>
+    </article><article class="presente-card" data-id="BODY_P">
+       <div class="presente-cabecalho"><span class="presente-categoria">Roupinhas</span><span class="presente-qt">8 unidades</span></div>
+       <h3>Body P</h3>
+       <p>1 body tamanho P por reserva.</p>
+       <p class="presente-disponibilidade" data-saldo="BODY_P">Consultando disponibilidade...</p>
+       
+       <button type="button" class="presente-reservar" data-reservar="BODY_P" disabled>Carregando reserva...</button>
+    </article><article class="presente-card" data-id="MAM_130">
+       <div class="presente-cabecalho"><span class="presente-categoria">Mamadeiras</span><span class="presente-qt">4 unidades</span></div>
+       <h3>MAM Baby Easy Start 130 ml</h3>
+       <p>Mamadeira anticólica, autoesterilizável, 0+ meses, bico SkinSoft, cor neutra.</p>
+       <p class="presente-disponibilidade" data-saldo="MAM_130">Consultando disponibilidade...</p>
+       <a class="card-link" href="https://a.co/d/078ryeCF" target="_blank" rel="noopener noreferrer">Ver produto na Amazon <span aria-hidden="true">↗</span></a>
+       <button type="button" class="presente-reservar" data-reservar="MAM_130" disabled>Carregando reserva...</button>
+    </article>
+  </div>
+  <p class="presentes-rodape">Prefere contribuir de outra maneira? O Pix também está disponível mais abaixo, sem valor mínimo sugerido.</p>
+</section>
+
+  <section class="pix" id="pix" aria-labelledby="pix-t">
+    <h2 id="pix-t">Um carinho em forma de Pix</h2>
+    <p>Prefere contribuir com o enxoval do Ciro? O Pix também é uma opção de presente!</p>
+    <p>Chave Pix (telefone):</p>
+    <span class="pix-chave" id="pix-chave">+55 (11) 99563-6700</span>
+    <button type="button" id="pix-copiar" aria-describedby="pix-msg">Copiar chave Pix</button>
+    <p class="pix-msg" id="pix-msg" role="status" aria-live="polite"></p>
+    <p><small>Antes de confirmar o pagamento, confira no seu banco se o destinatário corresponde à pessoa esperada.</small></p>
+  </section>
 
 </main>
 <footer>
@@ -139,58 +305,146 @@ footer { position: relative; height: clamp(230px, 34vw, 340px); margin-top: auto
 </footer>
 
 <script>
-(function () {
-  // Cole aqui o endereço do App da Web do Apps Script (termina em /exec):
+/*
+  Reservas públicas via Apps Script. O backend novo deve ser publicado como
+  nova versão da implantação existente antes de divulgar este HTML.
+  Usamos JSONP para ler o ContentService entre domínios sem depender de CORS.
+*/
+(() => {
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz9Qm578Oz_4vkEOOYtVqohTpU70jwUYErEeWCNRQBcjWFkrIcXzxnPcNlbPgnCl4GR/exec";
-  const btns = [...document.querySelectorAll(".tam")];
-  const nome = document.getElementById("fr-nome");
-  const ok = document.getElementById("fr-ok");
-  const msg = document.getElementById("fr-msg");
-  let escolhido = null;
+  const nome = document.getElementById('nome-convidado');
+  const status = document.getElementById('status-reservas');
+  const refresh = document.getElementById('atualizar-vagas');
+  const buttons = [...document.querySelectorAll('[data-reservar]')];
+  let salvo = null;
+  let esperando = false;
 
-  function pinta(t) {
-    btns.forEach(b => {
-      const d = t && t[b.dataset.t];
-      if (!d) return;
-      const fim = d.restam <= 0;
-      b.disabled = fim;
-      b.querySelector("small").textContent = fim ? d.total + " de " + d.total + " · esgotado" : (d.total - d.restam) + " de " + d.total + " reservados";
-      if (fim && escolhido === b.dataset.t) { escolhido = null; b.setAttribute("aria-pressed", "false"); }
+  function chamada(params) {
+    return new Promise((resolve, reject) => {
+      const id = '__ciro_cb_' + Date.now().toString(36) + Math.random().toString(36).slice(2);
+      const script = document.createElement('script');
+      const timer = window.setTimeout(() => terminar(new Error('Tempo de resposta excedido')), 20000);
+      let done = false;
+      function terminar(erro, resposta) {
+        if (done) return;
+        done = true;
+        window.clearTimeout(timer);
+        try { delete window[id]; } catch (_) { window[id] = undefined; }
+        script.remove();
+        if (erro) reject(erro); else resolve(resposta);
+      }
+      window[id] = dados => terminar(null, dados);
+      script.onerror = () => terminar(new Error('Não foi possível conectar ao Apps Script'));
+      const qp = new URLSearchParams({...params, callback:id, _: Date.now().toString()});
+      script.src = SCRIPT_URL + '?' + qp.toString();
+      document.head.appendChild(script);
     });
   }
-  async function chama(params = {}) {
-    const url = new URL(SCRIPT_URL);
-    Object.entries(params).forEach(([chave, valor]) => url.searchParams.set(chave, valor));
-    const r = await fetch(url.toString(), { cache: "no-store" });
-    if (!r.ok) throw new Error("Falha ao acessar a lista: HTTP " + r.status);
-    return r.json();
+
+  function atualizarControles() {
+    buttons.forEach(botao => {
+      const id = botao.dataset.reservar;
+      const item = salvo && salvo[id];
+      const card = botao.closest('.presente-card');
+      const texto = card.querySelector('[data-saldo]');
+      if (!item) {
+        texto.textContent = 'Disponibilidade ainda não confirmada';
+        botao.textContent = 'Reserva indisponível';
+        botao.disabled = true;
+        return;
+      }
+      const restam = Math.max(0, Number(item.restam));
+      texto.textContent = restam === 0
+        ? 'Esgotado: ' + item.total + ' de ' + item.total + ' reservados'
+        : restam + ' de ' + item.total + ' disponíveis';
+      card.classList.toggle('esgotado', restam === 0);
+      botao.disabled = esperando || restam === 0;
+      botao.textContent = restam === 0 ? 'Esgotado' : (esperando ? 'Aguarde...' : 'Reservar 1 ' + (item.unidadeSingular || 'presente'));
+    });
   }
-  btns.forEach(b => b.addEventListener("click", () => {
-    escolhido = b.dataset.t;
-    btns.forEach(x => x.setAttribute("aria-pressed", String(x === b)));
-    msg.textContent = "";
-  }));
-  ok.addEventListener("click", async () => {
-    if (!SCRIPT_URL) { msg.textContent = "A lista abre em breve."; return; }
-    if (!escolhido) { msg.textContent = "Escolha um tamanho."; return; }
-    if (!nome.value.trim()) { msg.textContent = "Escreva seu nome completo."; nome.focus(); return; }
-    ok.disabled = true; msg.textContent = "Reservando...";
+
+  async function carregar() {
+    if (esperando) return;
+    esperando = true;
+    status.textContent = 'Atualizando disponibilidade...';
+    atualizarControles();
     try {
-      const res = await chama({ acao: "reservar", nome: nome.value.trim(), tamanho: escolhido });
-      if (res.tamanhos) pinta(res.tamanhos);
-      msg.textContent = res.ok ? "Pronto, " + nome.value.trim() + "! Seu pacote " + escolhido + " está reservado." : res.erro;
-      if (res.ok) { nome.value = ""; btns.forEach(x => x.setAttribute("aria-pressed", "false")); escolhido = null; }
+      const resposta = await chamada({acao:'listar'});
+      if (!resposta || !resposta.ok || !resposta.itens) throw new Error('Versão incompatível do Apps Script');
+      salvo = resposta.itens;
+      status.textContent = 'Vagas atualizadas. Informe seu nome e reserve o presente desejado.';
     } catch (e) {
-      msg.textContent = "Não consegui reservar agora. Tente de novo em instantes.";
-    } finally { ok.disabled = false; }
-  });
-  if (!SCRIPT_URL) { btns.forEach(b => b.querySelector("small").textContent = "em breve"); return; }
-  chama({}).then(r => {
-    if (!r || !r.tamanhos) throw new Error("Resposta da lista sem tamanhos");
-    pinta(r.tamanhos);
-  }).catch(() => {
-    btns.forEach(b => { b.disabled = true; b.querySelector("small").textContent = "indisponível"; });
-    msg.textContent = "Não consegui carregar a lista agora.";
+      salvo = null; // Falha segura: nunca prometer reserva sem conexão.
+      status.textContent = 'Não foi possível consultar as vagas. Verifique se o Apps Script novo foi implantado e clique em Atualizar vagas.';
+    } finally {
+      esperando = false;
+      atualizarControles();
+    }
+  }
+
+  async function reservar(id, botao) {
+    if (esperando || !salvo || !salvo[id] || salvo[id].restam < 1) return;
+    const convidado = nome.value.trim();
+    if (!convidado) {
+      status.textContent = 'Escreva seu nome completo antes de reservar.';
+      nome.focus();
+      return;
+    }
+    const titulo = botao.closest('.presente-card').querySelector('h3').textContent;
+    if (!window.confirm('Confirmar a reserva de 1 presente: ' + titulo + '?')) return;
+    esperando = true;
+    atualizarControles();
+    status.textContent = 'Registrando sua reserva...';
+    const reqid = 'ciro-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2);
+    try {
+      const resposta = await chamada({acao:'reservar', item:id, nome:convidado, reqid:reqid});
+      if (resposta && resposta.itens) salvo = resposta.itens;
+      if (!resposta || !resposta.ok) {
+        status.textContent = (resposta && resposta.erro) || 'Reserva não confirmada. Atualize a lista antes de tentar de novo.';
+      } else {
+        status.textContent = 'Reserva confirmada para ' + convidado + ': 1 presente de ' + titulo + '. Obrigada!';
+        nome.value = '';
+      }
+    } catch (e) {
+      salvo = null;
+      status.textContent = 'Não foi possível confirmar a reserva. Consulte a planilha antes de repetir, para evitar duplicidade.';
+    } finally {
+      esperando = false;
+      atualizarControles();
+    }
+  }
+
+  buttons.forEach(botao => botao.addEventListener('click', () => reservar(botao.dataset.reservar, botao)));
+  refresh.addEventListener('click', carregar);
+  carregar();
+})();
+</script>
+
+<script>
+// A opção Pix não realiza pagamentos. Apenas copia a chave fornecida pelos organizadores.
+(function () {
+  const chave = "+5511995636700";
+  const botao = document.getElementById("pix-copiar");
+  const aviso = document.getElementById("pix-msg");
+  botao.addEventListener("click", async () => {
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(chave);
+      } else {
+        const campo = document.createElement("textarea");
+        campo.value = chave;
+        campo.style.position = "fixed";
+        campo.style.opacity = "0";
+        document.body.appendChild(campo);
+        campo.select();
+        const copiou = document.execCommand("copy");
+        campo.remove();
+        if (!copiou) throw new Error("Cópia indisponível");
+      }
+      aviso.textContent = "Chave copiada! Abra seu banco e cole na área Pix.";
+    } catch (_) {
+      aviso.textContent = "Não foi possível copiar automaticamente. Copie o número exibido acima.";
+    }
   });
 })();
 </script>
