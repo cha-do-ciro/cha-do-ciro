@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -172,100 +173,79 @@ main { width: 100%; }
 
 [hidden] { display: none !important; }
 
-/* Confirmação de presença (RSVP) — vem antes da lista de presentes */
-.rsvp { max-width: 520px; margin: 28px auto 0; padding: 24px 22px; background: var(--surface); border: 3px dashed var(--line); border-radius: 28px; scroll-margin-top: 16px; }
-.rsvp h2 { font-family: Pacifico, "Brush Script MT", cursive; font-weight: 400; font-size: clamp(1.7rem, 5vw, 2.3rem); margin: 0 0 .2em; }
-.rsvp p { color: var(--muted); margin: 8px auto; max-width: 40ch; }
-.rsvp-form { margin-top: 14px; text-align: left; }
-.rsvp-form > label, .rsvp-quantos label { display: block; margin: 0 0 6px; font-weight: 600; color: var(--ink); }
-.rsvp-form input[type="text"], .rsvp-quantos select { display: block; width: 100%; height: 50px; padding: 0 14px; border: 2px solid var(--line); border-radius: 12px; background: var(--bg); color: var(--ink); font: inherit; font-size: 16px; }
-.rsvp-opcoes { border: 0; padding: 0; margin: 16px 0 0; min-width: 0; }
-.rsvp-opcoes legend { padding: 0; margin-bottom: 6px; font-weight: 600; color: var(--ink); }
-.rsvp-opcoes-grade { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.rsvp-opcao { display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 10px 14px; border: 2px solid var(--line); border-radius: 14px; background: var(--bg); font-weight: 600; cursor: pointer; }
-.rsvp-opcao input { flex: 0 0 auto; width: 22px; height: 22px; margin: 0; accent-color: var(--teal); cursor: pointer; }
-.rsvp-opcao:has(input:checked) { background: var(--sun); border-color: var(--teal); color: #07365A; }
-.rsvp-opcao:has(input:focus-visible) { outline: 3px solid var(--teal); outline-offset: 2px; }
-.rsvp-quantos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; align-items: end; }
-.rsvp-botao { display: block; width: 100%; min-height: 50px; margin-top: 18px; padding: 12px 20px; border: 0; border-radius: 12px; background: var(--teal); color: #fff; font: inherit; font-weight: 600; font-size: 16px; cursor: pointer; }
-.rsvp-botao:disabled { opacity: .55; cursor: wait; }
-.rsvp-form input:focus-visible, .rsvp-quantos select:focus-visible, .rsvp-botao:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
-.rsvp-status { min-height: 1.5em; margin: 10px 0 0 !important; font-weight: 500; color: var(--ink) !important; text-align: center; max-width: none !important; }
-.rsvp-resumo { margin: 12px auto 0 !important; padding: 12px 14px; border-radius: 14px; background: var(--bg); color: var(--ink) !important; font-weight: 500; max-width: none !important; }
-.rsvp-nota { font-size: .86rem; }
+/* Resposta única: presença + presente */
+.rsvp { max-width: 560px; margin: 28px auto 0; padding: 24px 22px; background: var(--surface); border: 3px dashed var(--line); border-radius: 28px; scroll-margin-top: 16px; text-align: left; }
+.rsvp-cabeca { text-align: center; }
+.rsvp-cabeca h2 { font-family: Pacifico, "Brush Script MT", cursive; font-weight: 400; font-size: clamp(1.7rem, 5vw, 2.3rem); margin: 0 0 .2em; }
+.rsvp-cabeca p { color: var(--muted); margin: 8px auto; max-width: 40ch; }
+.rsvp-resumo { margin: 14px 0 0; padding: 12px 14px; border-radius: 14px; background: var(--bg); color: var(--ink); font-weight: 500; font-size: .95rem; }
+.campo-label { display: block; margin: 16px 0 6px; font-weight: 600; color: var(--ink); }
+.rsvp input[type="text"], .quantos select { display: block; width: 100%; height: 50px; padding: 0 14px; border: 2px solid var(--line); border-radius: 12px; background: var(--bg); color: var(--ink); font: inherit; font-size: 16px; }
+.rsvp input[type="text"]:focus-visible, .quantos select:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+.opcoes { border: 0; padding: 0; margin: 16px 0 0; min-width: 0; }
+.opcoes legend { padding: 0; margin-bottom: 6px; font-weight: 600; color: var(--ink); }
+.opcoes-grade { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.opcao { display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 10px 14px; border: 2px solid var(--line); border-radius: 14px; background: var(--bg); color: var(--ink); cursor: pointer; text-align: left; }
+.opcao input { flex: 0 0 auto; width: 22px; height: 22px; margin: 0; accent-color: var(--teal); cursor: pointer; }
+.opcao strong { display: block; font-weight: 600; }
+.opcao small { display: block; color: var(--muted); font-size: .88rem; }
+.opcao:has(input:checked) { background: var(--sun); border-color: var(--teal); color: #07365A; }
+.opcao:has(input:checked) small { color: #07365A; }
+.opcao:has(input:focus-visible) { outline: 3px solid var(--teal); outline-offset: 2px; }
+.quantos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; align-items: end; }
+.quantos label { display: block; margin: 0 0 6px; font-weight: 600; }
 
-/* "Seus presentes": o que este aparelho já reservou, com opção de desfazer */
-.meus-presentes { margin-top: 16px; padding-top: 14px; border-top: 2px dashed var(--line); }
-.meus-presentes h4 { margin: 0 0 6px; font-size: 1.02rem; }
-.meus-presentes ul { list-style: none; margin: 0; padding: 0; }
-.meus-presentes li { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line); }
-.meus-presentes li span { min-width: 0; overflow-wrap: anywhere; font-size: .95rem; }
-.desfazer { flex: 0 0 auto; min-height: 40px; padding: 6px 14px; border: 2px solid #B34837; border-radius: 10px; background: transparent; color: var(--ink); font: inherit; font-size: .9rem; font-weight: 600; cursor: pointer; }
-.desfazer:disabled { opacity: .5; cursor: wait; }
-.desfazer:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
-.meus-nota { margin: 8px 0 0; color: var(--muted); font-size: .86rem; }
-@media (max-width: 380px) { .rsvp-opcoes-grade, .rsvp-quantos { grid-template-columns: 1fr; } }
+/* "E o presente?" */
+.modo { max-width: 680px; margin: 0 auto 22px; padding: 18px; border: 3px dashed var(--line); border-radius: 23px; background: var(--surface); scroll-margin-top: 16px; }
+.modo legend { float: left; width: 100%; margin-bottom: 10px; font-size: 1.1rem; }
+.modo-lista { clear: both; display: grid; gap: 10px; }
 
-/* Lista de presentes: cada cartão tem uma caixinha "vou levar" */
+/* Cartões da lista */
 .presente-disponibilidade { font-weight: 600; color: var(--ink) !important; margin-top: 9px !important; }
+.presente-card { transition: opacity .2s; }
 .presente-card.esgotado { opacity: .7; }
 .presente-card.esgotado .presente-disponibilidade { color: #B34837 !important; }
-.presente-card.escolhido { border-color: var(--teal); box-shadow: 0 0 0 3px var(--sun); }
+.presente-card.tem-qtd { border-color: var(--teal); box-shadow: 0 0 0 3px var(--sun); }
+.presentes-grade.inativa .presente-card { opacity: .5; }
 .card-link { margin-top: auto; }
-.presente-escolha { display: flex; align-items: center; gap: 12px; margin-top: 8px; padding: 12px 14px; min-height: 52px; border: 2px solid var(--line); border-radius: 14px; background: var(--bg); color: var(--ink); font-weight: 600; cursor: pointer; }
-.presente-escolha input { flex: 0 0 auto; width: 24px; height: 24px; margin: 0; accent-color: var(--teal); cursor: pointer; }
-.presente-escolha:has(input:focus-visible) { outline: 3px solid var(--teal); outline-offset: 2px; }
-.presente-card.escolhido .presente-escolha { background: var(--sun); border-color: var(--teal); color: #07365A; }
-.presente-card.esgotado .presente-escolha { cursor: not-allowed; text-decoration: line-through; }
-.presente-escolha input:disabled { cursor: not-allowed; }
+.qtd { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 10px; margin-top: 8px; padding: 8px 10px 8px 14px; border: 2px solid var(--line); border-radius: 14px; background: var(--bg); color: var(--ink); font-weight: 600; }
+.qtd-rotulo { flex: 1 1 auto; }
+.qtd-controles { display: inline-flex; align-items: center; gap: 8px; }
+.qtd button { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; border: 2px solid var(--teal); border-radius: 12px; background: transparent; color: var(--ink); font: inherit; font-size: 1.4rem; line-height: 1; cursor: pointer; }
+.qtd button.qtd-mais { background: var(--teal); color: #fff; }
+.qtd button:disabled { opacity: .3; cursor: not-allowed; }
+.qtd button:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+.qtd-valor { min-width: 2ch; text-align: center; font-size: 1.25rem; }
+.qtd-unidade { min-width: 7ch; font-weight: 500; }
+.presente-card.tem-qtd .qtd { background: var(--sun); border-color: var(--teal); color: #07365A; }
+.presente-card.tem-qtd .qtd button.qtd-menos { color: #07365A; }
 
-/* Bloco final: nome + confirmar */
-.finalizar { max-width: 690px; margin: 26px auto 0; padding: 20px; border: 3px dashed var(--line); border-radius: 23px; background: var(--surface); text-align: left; scroll-margin-top: 16px; scroll-margin-bottom: 16px; }
-.finalizar h3 { margin: 0 0 4px; font-size: 1.2rem; }
-.finalizar-dica { margin: 0; color: var(--muted); font-size: .94rem; }
-.finalizar label { display: block; margin: 14px 0 6px; font-weight: 600; }
-.finalizar input[type="text"] { display: block; width: 100%; height: 50px; padding: 0 14px; border: 2px solid var(--line); border-radius: 12px; background: var(--bg); color: var(--ink); font: inherit; font-size: 16px; }
-.finalizar-acoes { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
-.confirmar-presentes { flex: 1 1 220px; min-height: 50px; border: 0; border-radius: 12px; background: var(--teal); color: #fff; font: inherit; font-weight: 600; font-size: 16px; padding: 10px 16px; cursor: pointer; }
-.confirmar-presentes:disabled { opacity: .55; cursor: not-allowed; }
-.atualizar-lista { flex: 0 0 auto; min-height: 50px; border: 2px solid var(--teal); border-radius: 12px; background: transparent; color: var(--ink); font: inherit; font-weight: 600; padding: 10px 16px; cursor: pointer; }
-.finalizar input:focus-visible, .confirmar-presentes:focus-visible, .atualizar-lista:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
-.reserva-status { margin: 12px 0 0; color: var(--muted); font-size: .92rem; min-height: 1.5em; }
+/* Confira e envie */
+.finalizar { max-width: 690px; margin: 26px auto 0; padding: 20px; border: 3px solid var(--teal); border-radius: 23px; background: var(--surface); text-align: left; scroll-margin-top: 16px; scroll-margin-bottom: 16px; }
+.finalizar h3 { margin: 0; font-size: 1.2rem; }
+.resumo { list-style: none; margin: 10px 0 0; padding: 0; }
+.resumo li { padding: 9px 0; border-bottom: 1px solid var(--line); font-size: .97rem; overflow-wrap: anywhere; }
+.resumo li b { display: block; font-size: .74rem; letter-spacing: .08em; text-transform: uppercase; color: var(--teal); }
+.resumo li.falta { color: #B34837; font-weight: 600; }
+.enviar { display: block; width: 100%; min-height: 52px; margin-top: 16px; padding: 10px 16px; border: 0; border-radius: 12px; background: var(--teal); color: #fff; font: inherit; font-weight: 600; font-size: 16px; cursor: pointer; }
+.enviar:disabled { opacity: .55; cursor: wait; }
+.atualizar-lista { display: block; width: 100%; min-height: 46px; margin-top: 10px; padding: 8px 16px; border: 2px solid var(--teal); border-radius: 12px; background: transparent; color: var(--ink); font: inherit; font-weight: 600; font-size: 15px; cursor: pointer; }
+.enviar:focus-visible, .atualizar-lista:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
+.reserva-status { margin: 12px 0 0; color: var(--ink); font-weight: 500; font-size: .95rem; min-height: 1.5em; }
+.meus-nota { margin: 8px 0 0; color: var(--muted); font-size: .86rem; }
 
-/* Pílula flutuante que leva ao bloco final quando há presentes marcados */
+/* Pílula flutuante: leva até "Confira e envie" quando há algo por enviar */
 .pilula { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 10; display: inline-flex; align-items: center; min-height: 48px; padding: 10px 20px; border-radius: 999px; background: var(--teal); color: #fff; text-decoration: none; font-weight: 600; box-shadow: 0 6px 20px rgba(7,54,90,.3); white-space: nowrap; }
 .pilula:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
 
 @media (max-width: 540px) {
-  .finalizar { padding: 16px 14px; }
-  .finalizar-acoes { flex-direction: column; }
-  .confirmar-presentes, .atualizar-lista { flex: 0 0 auto; width: 100%; }
   .rsvp { padding: 20px 14px; }
-  .rsvp-botao { width: 100%; }
+  .modo { padding: 14px 12px; }
+  .finalizar { padding: 16px 14px; }
 }
-
-/* Mapa do local da festa */
-.mapa { margin-top: 20px; }
-.mapa-frame {
-  position: relative; width: 100%; aspect-ratio: 4 / 3;
-  border-radius: 20px; overflow: hidden; border: 3px solid var(--line);
-  background: var(--bg);
+@media (max-width: 380px) {
+  .opcoes-grade, .quantos { grid-template-columns: 1fr; }
 }
-.mapa-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-.mapa-botoes { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 14px; }
-.mapa-botoes a {
-  display: inline-flex; align-items: center; justify-content: center; min-height: 46px;
-  padding: 10px 18px; border-radius: 999px; text-decoration: none; font-weight: 600;
-  background: var(--teal); color: #fff;
-}
-.mapa-botoes a:nth-child(2) { background: var(--surface); color: var(--ink); border: 2px solid var(--line); }
-.mapa-botoes a:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
-@media (max-width: 420px) {
-  .mapa-frame { aspect-ratio: 1 / 1; }
-  .mapa-botoes { flex-direction: column; }
-  .mapa-botoes a { width: 100%; }
-}
-
 </style>
 </head>
 <body>
@@ -301,129 +281,126 @@ main { width: 100%; }
       </div>
     </div>
   </section>
+  <form id="form-cha" novalidate>
   <section class="rsvp" id="rsvp" aria-labelledby="rsvp-t">
-    <h2 id="rsvp-t">Vai mergulhar com a gente?</h2>
-    <p>Confirme sua presença pra gente organizar tudo direitinho.</p>
-    <p class="rsvp-resumo" id="presenca-resumo" hidden></p>
-    <form class="rsvp-form" id="form-presenca" novalidate>
-      <label for="presenca-nome">Seu nome</label>
-      <input id="presenca-nome" type="text" maxlength="60" autocomplete="name" placeholder="Ex.: Maria Silva" enterkeyhint="done">
-      <fieldset class="rsvp-opcoes">
-        <legend>Você vem?</legend>
-        <div class="rsvp-opcoes-grade">
-          <label class="rsvp-opcao"><input type="radio" name="vai" value="sim"><span>Vou, sim!</span></label>
-          <label class="rsvp-opcao"><input type="radio" name="vai" value="nao"><span>Não vou conseguir</span></label>
-        </div>
-      </fieldset>
-      <div class="rsvp-quantos" id="presenca-quantos" hidden>
-        <div>
-          <label for="presenca-adultos">Adultos (com você)</label>
-          <select id="presenca-adultos">
-            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option>
-          </select>
-        </div>
-        <div>
-          <label for="presenca-criancas">Crianças</label>
-          <select id="presenca-criancas">
-            <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
-          </select>
-        </div>
+    <div class="rsvp-cabeca">
+      <h2 id="rsvp-t">Vai mergulhar com a gente?</h2>
+      <p>Confirme sua presença e, se quiser, já escolha o presente aqui embaixo. Vai tudo numa resposta só.</p>
+    </div>
+    <p class="rsvp-resumo" id="resumo-salvo" hidden></p>
+    <label class="campo-label" for="nome-convidado">Seu nome</label>
+    <input id="nome-convidado" type="text" maxlength="60" autocomplete="name" placeholder="Ex.: Maria Silva" enterkeyhint="done">
+    <fieldset class="opcoes">
+      <legend>Você vem?</legend>
+      <div class="opcoes-grade">
+        <label class="opcao"><input type="radio" name="vai" value="sim"><span><strong>Vou, sim!</strong></span></label>
+        <label class="opcao"><input type="radio" name="vai" value="nao"><span><strong>Não vou conseguir</strong></span></label>
       </div>
-      <button type="submit" class="rsvp-botao" id="presenca-botao">Confirmar presença</button>
-      <p class="rsvp-status" id="presenca-status" role="status" aria-live="polite"></p>
-    </form>
-    <p class="rsvp-nota">Dá pra mudar a resposta depois, por este mesmo celular ou computador.</p>
+    </fieldset>
+    <div class="quantos" id="quantos" hidden>
+      <div>
+        <label for="adultos">Adultos (com você)</label>
+        <select id="adultos">
+          <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option>
+        </select>
+      </div>
+      <div>
+        <label for="criancas">Crianças</label>
+        <select id="criancas">
+          <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+        </select>
+      </div>
+    </div>
   </section>
 
   <section class="presentes" id="presentes" aria-labelledby="presentes-t">
   <div class="presente-intro">
     <span class="secao-selo">Lista de presentes</span>
     <h2 id="presentes-t">O que você vai levar pro Ciro?</h2>
-    <p>Se quiser presentear, marque a caixinha do que vai levar. Cada caixinha vale <strong>1 pacote, 1 kit ou 1 unidade</strong>, e dá pra marcar mais de uma.</p>
-    <p class="presente-aviso">A lista é compartilhada: quando todos de um item forem escolhidos, ele aparece como esgotado pra quem vier depois.</p>
+    <p>Presente não é obrigatório. Se quiser escolher da lista, use o <strong>+</strong> pra dizer quantos de cada item vai levar. Dá pra levar mais de um do mesmo e também combinar itens diferentes.</p>
   </div>
-  <div class="presentes-grade">
+
+  <fieldset class="opcoes modo" id="modo">
+    <legend>E o presente?</legend>
+    <div class="modo-lista">
+      <label class="opcao"><input type="radio" name="modo" value="lista"><span><strong>Vou escolher da lista</strong><small>Use o + nos itens logo abaixo.</small></span></label>
+      <label class="opcao"><input type="radio" name="modo" value="outro"><span><strong>Vou presentear de outro jeito</strong><small>Pix, um mimo fora da lista ou só a sua companhia: tudo isso vale.</small></span></label>
+      <label class="opcao"><input type="radio" name="modo" value="nao_sei"><span><strong>Ainda não sei</strong><small>Sem problema: dá pra voltar aqui e escolher depois.</small></span></label>
+    </div>
+  </fieldset>
+
+  <div class="presentes-grade" id="grade">
     <article class="presente-card" data-id="FR_RN">
        <div class="presente-cabecalho"><span class="presente-categoria">Fraldas</span><span class="presente-qt">8 pacotes</span></div>
        <h3>Fralda Pampers Confort Sec RN</h3>
        <p>36 fraldas por pacote · 288 fraldas no total</p>
-       <p class="presente-disponibilidade" data-saldo="FR_RN">Consultando disponibilidade...</p>
-
+       <p class="presente-disponibilidade" data-saldo>Consultando disponibilidade...</p>
        <a class="card-link" href="https://www.google.com/search?q=Fralda+Pampers+Confort+Sec+RN+pacote+36+unidades" target="_blank" rel="noopener noreferrer" aria-label="Buscar Fralda Pampers Confort Sec RN pacote 36 unidades no Google">Buscar no Google <span aria-hidden="true">↗</span></a>
-       <label class="presente-escolha"><input type="checkbox" data-item="FR_RN" data-unidade="pacote" disabled><span class="presente-escolha-texto">Carregando...</span></label>
+       <div class="qtd" data-item="FR_RN" data-um="pacote" data-varios="pacotes"></div>
     </article><article class="presente-card" data-id="FR_P">
        <div class="presente-cabecalho"><span class="presente-categoria">Fraldas</span><span class="presente-qt">6 pacotes</span></div>
        <h3>Fralda Pampers Confort Sec P</h3>
        <p>72 fraldas por pacote · 432 fraldas no total</p>
-       <p class="presente-disponibilidade" data-saldo="FR_P">Consultando disponibilidade...</p>
-
+       <p class="presente-disponibilidade" data-saldo>Consultando disponibilidade...</p>
        <a class="card-link" href="https://www.google.com/search?q=Fralda+Pampers+Confort+Sec+P+pacote+72+unidades" target="_blank" rel="noopener noreferrer" aria-label="Buscar Fralda Pampers Confort Sec P pacote 72 unidades no Google">Buscar no Google <span aria-hidden="true">↗</span></a>
-       <label class="presente-escolha"><input type="checkbox" data-item="FR_P" data-unidade="pacote" disabled><span class="presente-escolha-texto">Carregando...</span></label>
+       <div class="qtd" data-item="FR_P" data-um="pacote" data-varios="pacotes"></div>
     </article><article class="presente-card" data-id="GRANADO">
        <div class="presente-cabecalho"><span class="presente-categoria">Higiene</span><span class="presente-qt">6 unidades</span></div>
        <h3>Granado Água de Limpeza Bebê, Peles Sensíveis, 500 ml</h3>
        <p>Frasco de 500 ml, para peles sensíveis.</p>
-       <p class="presente-disponibilidade" data-saldo="GRANADO">Consultando disponibilidade...</p>
+       <p class="presente-disponibilidade" data-saldo>Consultando disponibilidade...</p>
        <a class="card-link" href="https://a.co/d/0is0hP3c" target="_blank" rel="noopener noreferrer">Ver produto na Amazon <span aria-hidden="true">↗</span></a>
-       <label class="presente-escolha"><input type="checkbox" data-item="GRANADO" data-unidade="frasco" disabled><span class="presente-escolha-texto">Carregando...</span></label>
+       <div class="qtd" data-item="GRANADO" data-um="frasco" data-varios="frascos"></div>
     </article><article class="presente-card" data-id="ALGODAO">
        <div class="presente-cabecalho"><span class="presente-categoria">Higiene</span><span class="presente-qt">12 pacotes</span></div>
        <h3>Algodão quadrado</h3>
        <p>100 quadrados por pacote · 1.200 unidades no total</p>
-       <p class="presente-disponibilidade" data-saldo="ALGODAO">Consultando disponibilidade...</p>
+       <p class="presente-disponibilidade" data-saldo>Consultando disponibilidade...</p>
        <a class="card-link" href="https://a.co/d/0hyyQZiv" target="_blank" rel="noopener noreferrer">Ver produto na Amazon <span aria-hidden="true">↗</span></a>
-       <label class="presente-escolha"><input type="checkbox" data-item="ALGODAO" data-unidade="pacote" disabled><span class="presente-escolha-texto">Carregando...</span></label>
+       <div class="qtd" data-item="ALGODAO" data-um="pacote" data-varios="pacotes"></div>
     </article><article class="presente-card" data-id="LENCO_RN">
        <div class="presente-cabecalho"><span class="presente-categoria">Higiene</span><span class="presente-qt">6 kits</span></div>
        <h3>Lenços umedecidos Johnson’s Baby RN</h3>
-       <p>1 reserva = 1 kit com 192 lenços · 1.152 lenços no total</p>
-       <p class="presente-disponibilidade" data-saldo="LENCO_RN">Consultando disponibilidade...</p>
+       <p>1 kit com 192 lenços · 1.152 lenços no total</p>
+       <p class="presente-disponibilidade" data-saldo>Consultando disponibilidade...</p>
        <a class="card-link" href="https://a.co/d/0cF6d8ZC" target="_blank" rel="noopener noreferrer">Ver produto na Amazon <span aria-hidden="true">↗</span></a>
-       <label class="presente-escolha"><input type="checkbox" data-item="LENCO_RN" data-unidade="kit" disabled><span class="presente-escolha-texto">Carregando...</span></label>
+       <div class="qtd" data-item="LENCO_RN" data-um="kit" data-varios="kits"></div>
     </article><article class="presente-card" data-id="BODY_RN">
        <div class="presente-cabecalho"><span class="presente-categoria">Roupinhas</span><span class="presente-qt">6 unidades</span></div>
        <h3>Body RN</h3>
-       <p>1 body tamanho recém-nascido por reserva.</p>
-       <p class="presente-disponibilidade" data-saldo="BODY_RN">Consultando disponibilidade...</p>
-
+       <p>Body tamanho recém-nascido.</p>
+       <p class="presente-disponibilidade" data-saldo>Consultando disponibilidade...</p>
        <a class="card-link" href="https://www.google.com/search?q=body+rec%C3%A9m-nascido+RN+beb%C3%AA" target="_blank" rel="noopener noreferrer" aria-label="Buscar body recém-nascido RN bebê no Google">Buscar no Google <span aria-hidden="true">↗</span></a>
-       <label class="presente-escolha"><input type="checkbox" data-item="BODY_RN" data-unidade="body" disabled><span class="presente-escolha-texto">Carregando...</span></label>
+       <div class="qtd" data-item="BODY_RN" data-um="body" data-varios="bodies"></div>
     </article><article class="presente-card" data-id="BODY_P">
        <div class="presente-cabecalho"><span class="presente-categoria">Roupinhas</span><span class="presente-qt">8 unidades</span></div>
        <h3>Body P</h3>
-       <p>1 body tamanho P por reserva.</p>
-       <p class="presente-disponibilidade" data-saldo="BODY_P">Consultando disponibilidade...</p>
-
+       <p>Body tamanho P.</p>
+       <p class="presente-disponibilidade" data-saldo>Consultando disponibilidade...</p>
        <a class="card-link" href="https://www.google.com/search?q=body+beb%C3%AA+tamanho+P" target="_blank" rel="noopener noreferrer" aria-label="Buscar body bebê tamanho P no Google">Buscar no Google <span aria-hidden="true">↗</span></a>
-       <label class="presente-escolha"><input type="checkbox" data-item="BODY_P" data-unidade="body" disabled><span class="presente-escolha-texto">Carregando...</span></label>
+       <div class="qtd" data-item="BODY_P" data-um="body" data-varios="bodies"></div>
     </article><article class="presente-card" data-id="MAM_130">
        <div class="presente-cabecalho"><span class="presente-categoria">Mamadeiras</span><span class="presente-qt">4 unidades</span></div>
        <h3>MAM Baby Easy Start 130 ml</h3>
        <p>Mamadeira anticólica, autoesterilizável, 0+ meses, bico SkinSoft, cor neutra.</p>
-       <p class="presente-disponibilidade" data-saldo="MAM_130">Consultando disponibilidade...</p>
+       <p class="presente-disponibilidade" data-saldo>Consultando disponibilidade...</p>
        <a class="card-link" href="https://a.co/d/078ryeCF" target="_blank" rel="noopener noreferrer">Ver produto na Amazon <span aria-hidden="true">↗</span></a>
-       <label class="presente-escolha"><input type="checkbox" data-item="MAM_130" data-unidade="mamadeira" disabled><span class="presente-escolha-texto">Carregando...</span></label>
+       <div class="qtd" data-item="MAM_130" data-um="mamadeira" data-varios="mamadeiras"></div>
     </article>
   </div>
+  <p class="presentes-rodape">A lista é compartilhada: quando todos de um item forem escolhidos, ele aparece como esgotado. Prefere o Pix? A chave está logo abaixo.</p>
+
   <div class="finalizar" id="finalizar">
-    <h3>Pra finalizar</h3>
-    <p class="finalizar-dica">Escreva seu nome e confirme o que você marcou.</p>
-    <label for="nome-convidado">Seu nome</label>
-    <input id="nome-convidado" type="text" maxlength="60" autocomplete="name" placeholder="Ex.: Maria Silva" enterkeyhint="done">
-    <div class="finalizar-acoes">
-      <button type="button" class="confirmar-presentes" id="confirmar-presentes" disabled>Marque pelo menos 1 presente</button>
-      <button type="button" class="atualizar-lista" id="atualizar-lista">Atualizar lista</button>
-    </div>
-    <p id="status-reservas" role="status" aria-live="polite" class="reserva-status">Carregando a lista...</p>
-    <div class="meus-presentes" id="meus-presentes" hidden>
-      <h4>Seus presentes</h4>
-      <ul id="meus-presentes-lista"></ul>
-      <p class="meus-nota">Marcou errado? Toque em "Desfazer" e escolha de novo. Funciona neste mesmo aparelho; de outro, fale com a organização.</p>
-    </div>
+    <h3>Confira e envie</h3>
+    <ul class="resumo" id="resumo"></ul>
+    <button type="submit" class="enviar" id="enviar">Enviar resposta</button>
+    <button type="button" class="atualizar-lista" id="atualizar-lista">Atualizar lista</button>
+    <p id="status-envio" role="status" aria-live="polite" class="reserva-status"></p>
+    <p class="meus-nota">Dá pra mudar tudo depois, por este mesmo celular ou computador: é só alterar e enviar de novo. De outro aparelho, fale com a organização.</p>
   </div>
-  <p class="presentes-rodape">Prefere presentear de outro jeito? O Pix está logo abaixo.</p>
-  <a class="pilula" id="pilula-escolhidos" href="#finalizar" hidden>Finalizar ↓</a>
-</section>
+  </section>
+  </form>
+  <a class="pilula" id="pilula" href="#finalizar" hidden>Enviar resposta ↓</a>
 
   <section class="pix" id="pix" aria-labelledby="pix-t">
     <h2 id="pix-t">Um carinho em forma de Pix</h2>
@@ -443,10 +420,10 @@ main { width: 100%; }
 
 <script>
 /*
-  Presença + lista de presentes, tudo na mesma planilha via Apps Script.
+  Presença + presentes numa resposta só, gravados na planilha via Apps Script.
   Usamos JSONP para ler o ContentService entre domínios sem depender de CORS.
   Cada aparelho recebe uma "chave" aleatória guardada no navegador: é ela que
-  permite à própria pessoa alterar a presença e desfazer presentes depois.
+  permite à própria pessoa alterar a resposta depois.
 */
 (() => {
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz9Qm578Oz_4vkEOOYtVqohTpU70jwUYErEeWCNRQBcjWFkrIcXzxnPcNlbPgnCl4GR/exec";
@@ -469,7 +446,7 @@ main { width: 100%; }
     return new Promise((resolve, reject) => {
       const id = '__ciro_cb_' + Date.now().toString(36) + Math.random().toString(36).slice(2);
       const script = document.createElement('script');
-      const timer = window.setTimeout(() => terminar(new Error('Tempo de resposta excedido')), 20000);
+      const timer = window.setTimeout(() => terminar(new Error('Tempo de resposta excedido')), 25000);
       let done = false;
       function terminar(erro, resposta) {
         if (done) return;
@@ -488,298 +465,314 @@ main { width: 100%; }
   }
 
   // ---------- Elementos ----------
-  const fPres = $('form-presenca');
-  const pNome = $('presenca-nome');
-  const pAdultos = $('presenca-adultos');
-  const pCriancas = $('presenca-criancas');
-  const pQuantos = $('presenca-quantos');
-  const pBotao = $('presenca-botao');
-  const pStatus = $('presenca-status');
-  const pResumo = $('presenca-resumo');
-
+  const form = $('form-cha');
   const nome = $('nome-convidado');
-  const status = $('status-reservas');
+  const quantos = $('quantos');
+  const adultos = $('adultos');
+  const criancas = $('criancas');
+  const grade = $('grade');
+  const resumo = $('resumo');
+  const resumoSalvo = $('resumo-salvo');
+  const enviar = $('enviar');
   const refresh = $('atualizar-lista');
-  const confirmar = $('confirmar-presentes');
-  const pilula = $('pilula-escolhidos');
+  const status = $('status-envio');
+  const pilula = $('pilula');
   const finalizar = $('finalizar');
-  const meusBox = $('meus-presentes');
-  const meusLista = $('meus-presentes-lista');
-  const caixas = [...document.querySelectorAll('[data-item]')];
+  const qtds = [...document.querySelectorAll('.qtd')];
+
+  let disp = null;        // disponibilidade vinda da planilha
+  let meus = {};          // quantidades já gravadas por este aparelho
+  let escolha = {};       // quantidades escolhidas agora na tela
+  let salvo = null;       // presença já gravada
+  let estadoSalvo = '';
+  let esperando = false;
+  let carregou = false;
+  let finalizarVisivel = false;
 
   const nomeGuardado = lerLocal('ciro-nome');
-  if (nomeGuardado) { pNome.value = nomeGuardado; nome.value = nomeGuardado; }
+  if (nomeGuardado) nome.value = nomeGuardado;
 
-  function lembrarNome(valor) {
-    gravarLocal('ciro-nome', valor);
-    if (!pNome.value.trim()) pNome.value = valor;
-    if (!nome.value.trim()) nome.value = valor;
-  }
-
-  // ---------- Presença ----------
-  let presencaSalva = null;
-  let enviandoPresenca = false;
-
-  function vaiEscolhido() {
-    const r = fPres.querySelector('input[name="vai"]:checked');
+  // ---------- Utilidades ----------
+  function radio(nomeCampo) {
+    const r = form.querySelector('input[name="' + nomeCampo + '"]:checked');
     return r ? r.value : '';
   }
-
+  function marcar(nomeCampo, valor) {
+    const r = form.querySelector('input[name="' + nomeCampo + '"][value="' + valor + '"]');
+    if (r) r.checked = true;
+  }
+  function titulo(id) {
+    const h = document.querySelector('.presente-card[data-id="' + id + '"] h3');
+    return h ? h.textContent : id;
+  }
+  function qtdDe(id) { return qtds.find(q => q.dataset.item === id); }
+  function unidade(id, n) {
+    const q = qtdDe(id);
+    return q ? (n === 1 ? q.dataset.um : q.dataset.varios) : '';
+  }
+  function total() { return Object.values(escolha).reduce((a, b) => a + b, 0); }
+  function maxDe(id) {
+    const it = disp && disp[id];
+    return it ? Math.max(0, Number(it.restam)) + (meus[id] || 0) : 0;
+  }
+  function limitar(v, min, max) { return Math.min(max, Math.max(min, Number(v) || 0)); }
   function plural(n, um, varios) { return n + ' ' + (Number(n) === 1 ? um : varios); }
 
-  function descreverPresenca(p) {
-    if (!p) return '';
-    if (p.vai === 'nao') return 'Você respondeu que não vai conseguir ir. Se mudar de ideia, é só alterar abaixo.';
-    let txt = 'Presença confirmada: ' + plural(p.adultos, 'adulto', 'adultos');
-    if (Number(p.criancas) > 0) txt += ' e ' + plural(p.criancas, 'criança', 'crianças');
-    return txt + '. Mudou algo? É só alterar e salvar de novo.';
+  function modoEfetivo() {
+    const m = radio('modo');
+    if (m) return m;
+    return total() > 0 ? 'lista' : 'nao_sei';
+  }
+  function itensTexto(obj) {
+    return Object.keys(obj).filter(k => obj[k] > 0).sort().map(k => k + ':' + obj[k]).join(',');
+  }
+  function snapshot() {
+    const vai = radio('vai');
+    const modo = modoEfetivo();
+    return JSON.stringify([
+      nome.value.trim(), vai,
+      vai === 'sim' ? adultos.value : '0',
+      vai === 'sim' ? criancas.value : '0',
+      modo, modo === 'lista' ? itensTexto(escolha) : ''
+    ]);
   }
 
-  function atualizarPresencaUI() {
-    const vai = vaiEscolhido();
-    pQuantos.hidden = vai !== 'sim';
-    pBotao.disabled = enviandoPresenca;
-    pBotao.textContent = enviandoPresenca ? 'Enviando...'
-      : presencaSalva ? 'Salvar alteração'
-      : vai === 'nao' ? 'Enviar resposta'
-      : 'Confirmar presença';
+  function textoPresenca(vai, a, c) {
+    if (vai === 'nao') return 'Não vou conseguir ir';
+    if (vai !== 'sim') return '';
+    let t = 'Vou, com ' + plural(a, 'adulto', 'adultos');
+    if (Number(c) > 0) t += ' e ' + plural(c, 'criança', 'crianças');
+    return t;
+  }
+  function textoItens(obj) {
+    return Object.keys(obj).filter(k => obj[k] > 0)
+      .map(k => obj[k] + ' ' + unidade(k, obj[k]) + ' · ' + titulo(k)).join('; ');
+  }
+  function textoPresente(modo, obj) {
+    if (modo === 'outro') return 'De outro jeito (Pix, mimo fora da lista ou só a companhia)';
+    if (modo === 'nao_sei') return 'Ainda não sei';
+    return textoItens(obj);
   }
 
-  function preencherPresenca(p) {
-    presencaSalva = p || null;
-    if (p) {
-      if (p.nome) pNome.value = p.nome;
-      const r = fPres.querySelector('input[name="vai"][value="' + p.vai + '"]');
-      if (r) r.checked = true;
-      pAdultos.value = String(Math.min(8, Math.max(1, Number(p.adultos) || 1)));
-      pCriancas.value = String(Math.min(6, Math.max(0, Number(p.criancas) || 0)));
-    }
-    pResumo.textContent = descreverPresenca(p);
-    pResumo.hidden = !p;
-    atualizarPresencaUI();
-  }
-
-  fPres.addEventListener('change', atualizarPresencaUI);
-  fPres.addEventListener('submit', async ev => {
-    ev.preventDefault();
-    if (enviandoPresenca) return;
-    const nomeV = pNome.value.trim();
-    const vai = vaiEscolhido();
-    if (!nomeV) { pStatus.textContent = 'Escreva seu nome.'; pNome.focus(); return; }
-    if (!vai) { pStatus.textContent = 'Conta pra gente se você vem.'; return; }
-    enviandoPresenca = true;
-    atualizarPresencaUI();
-    pStatus.textContent = '';
-    try {
-      const r = await chamada({
-        acao: 'presenca', nome: nomeV, vai: vai,
-        adultos: vai === 'sim' ? pAdultos.value : 0,
-        criancas: vai === 'sim' ? pCriancas.value : 0
-      });
-      if (!r || !r.ok) {
-        pStatus.textContent = (r && r.erro) || 'Não deu pra salvar agora. Tente de novo.';
-      } else {
-        enviandoPresenca = false;
-        preencherPresenca(r.presenca);
-        pStatus.textContent = vai === 'sim' ? 'Oba! Te esperamos lá.' : 'Obrigada por avisar!';
-        lembrarNome(nomeV);
-      }
-    } catch (e) {
-      pStatus.textContent = 'Sem conexão com a lista agora. Tente de novo em instantes.';
-    } finally {
-      enviandoPresenca = false;
-      atualizarPresencaUI();
-    }
+  // ---------- Botões − / + ----------
+  qtds.forEach(q => {
+    const id = q.dataset.item;
+    const t = titulo(id);
+    q.innerHTML =
+      '<span class="qtd-rotulo">Vou levar</span>' +
+      '<span class="qtd-controles">' +
+        '<button type="button" class="qtd-menos">−</button>' +
+        '<span class="qtd-valor" aria-live="polite">0</span>' +
+        '<button type="button" class="qtd-mais">+</button>' +
+        '<span class="qtd-unidade"></span>' +
+      '</span>';
+    const menos = q.querySelector('.qtd-menos');
+    const mais = q.querySelector('.qtd-mais');
+    menos.setAttribute('aria-label', 'Tirar 1 ' + q.dataset.um + ': ' + t);
+    mais.setAttribute('aria-label', 'Adicionar 1 ' + q.dataset.um + ': ' + t);
+    menos.addEventListener('click', () => mudar(id, -1));
+    mais.addEventListener('click', () => mudar(id, +1));
   });
 
-  // ---------- Lista de presentes ----------
-  let salvo = null;
-  let minhas = [];
-  let esperando = false;
-  let finalizarVisivel = false;
-  let primeiraCarga = true;
-
-  function titulo(caixa) {
-    return caixa.closest('.presente-card').querySelector('h3').textContent;
+  function mudar(id, delta) {
+    const atual = escolha[id] || 0;
+    escolha[id] = limitar(atual + delta, 0, maxDe(id));
+    if (delta > 0) marcar('modo', 'lista');
+    status.textContent = '';
+    render();
   }
 
-  function tituloDoItem(item, reserva) {
-    const h3 = document.querySelector('.presente-card[data-id="' + item + '"] h3');
-    return h3 ? h3.textContent : (reserva && reserva.descricao) || item;
-  }
+  // ---------- Desenho da tela ----------
+  function render() {
+    const vai = radio('vai');
+    const modo = radio('modo');
+    quantos.hidden = vai !== 'sim';
+    grade.classList.toggle('inativa', modo === 'outro' || modo === 'nao_sei');
 
-  function unidade(caixa) {
-    const item = salvo && salvo[caixa.dataset.item];
-    return caixa.dataset.unidade || (item && item.unidadeSingular) || 'unidade';
-  }
-
-  function renderMinhas() {
-    meusLista.innerHTML = '';
-    minhas.forEach(r => {
-      const li = document.createElement('li');
-      const span = document.createElement('span');
-      span.textContent = tituloDoItem(r.item, r);
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'desfazer';
-      b.textContent = 'Desfazer';
-      b.disabled = esperando;
-      b.addEventListener('click', () => cancelar(r));
-      li.append(span, b);
-      meusLista.appendChild(li);
-    });
-    meusBox.hidden = minhas.length === 0;
-  }
-
-  function atualizarControles() {
-    caixas.forEach(caixa => {
-      const item = salvo && salvo[caixa.dataset.item];
-      const card = caixa.closest('.presente-card');
-      const texto = card.querySelector('[data-saldo]');
-      const rotulo = card.querySelector('.presente-escolha-texto');
-      if (!item) {
-        texto.textContent = 'Disponibilidade ainda não confirmada';
-        rotulo.textContent = 'Indisponível no momento';
-        caixa.checked = false;
-        caixa.disabled = true;
-        card.classList.remove('escolhido', 'esgotado');
+    qtds.forEach(q => {
+      const id = q.dataset.item;
+      const card = q.closest('.presente-card');
+      const saldo = card.querySelector('[data-saldo]');
+      const menos = q.querySelector('.qtd-menos');
+      const mais = q.querySelector('.qtd-mais');
+      const it = disp && disp[id];
+      const n = escolha[id] || 0;
+      q.querySelector('.qtd-valor').textContent = n;
+      q.querySelector('.qtd-unidade').textContent = unidade(id, n);
+      if (!it) {
+        saldo.textContent = 'Disponibilidade ainda não confirmada';
+        menos.disabled = true;
+        mais.disabled = true;
+        card.classList.remove('tem-qtd', 'esgotado');
         return;
       }
-      const restam = Math.max(0, Number(item.restam));
-      const esgotado = restam === 0;
-      texto.textContent = esgotado
-        ? 'Esgotado: todos já foram escolhidos'
-        : (restam === 1 ? 'Falta só 1' : 'Faltam ' + restam) + ' de ' + item.total;
-      if (esgotado) caixa.checked = false;
-      caixa.disabled = esperando || esgotado;
-      rotulo.textContent = esgotado ? 'Esgotado' : 'Vou levar 1 ' + unidade(caixa);
+      const max = maxDe(id);
+      const sobram = Math.max(0, max - n);
+      const esgotado = max === 0;
+      if (esgotado) saldo.textContent = 'Esgotado: todos já foram escolhidos';
+      else if (n > 0) saldo.textContent = sobram === 0 ? 'Você ficou com os últimos!' : 'Sobram mais ' + sobram + ' de ' + it.total;
+      else saldo.textContent = (max === 1 ? 'Falta só 1' : 'Faltam ' + max) + ' de ' + it.total;
+      menos.disabled = esperando || n === 0;
+      mais.disabled = esperando || n >= max;
       card.classList.toggle('esgotado', esgotado);
-      card.classList.toggle('escolhido', caixa.checked);
+      card.classList.toggle('tem-qtd', n > 0);
     });
-    const n = caixas.filter(c => c.checked).length;
-    confirmar.disabled = esperando || n === 0;
-    confirmar.textContent = esperando
-      ? 'Aguarde...'
-      : n === 0 ? 'Marque pelo menos 1 presente'
-      : n === 1 ? 'Confirmar 1 presente'
-      : 'Confirmar ' + n + ' presentes';
-    pilula.textContent = (n === 1 ? '1 presente marcado' : n + ' presentes marcados') + ' · finalizar ↓';
-    pilula.hidden = n === 0 || finalizarVisivel;
-    renderMinhas();
+
+    // Resumo "Confira e envie"
+    const linhas = [];
+    const n = nome.value.trim();
+    linhas.push(['Nome', n || 'Falta preencher lá em cima', !n]);
+    const tp = textoPresenca(vai, adultos.value, criancas.value);
+    linhas.push(['Presença', tp || 'Falta responder lá em cima', !tp]);
+    const me = modoEfetivo();
+    const tpr = textoPresente(me, escolha);
+    linhas.push(['Presente', tpr || 'Escolha a quantidade de algum item, ou outra opção em “E o presente?”', !tpr]);
+    resumo.innerHTML = '';
+    linhas.forEach(([rotulo, texto, falta]) => {
+      const li = document.createElement('li');
+      if (falta) li.className = 'falta';
+      const b = document.createElement('b');
+      b.textContent = rotulo;
+      li.append(b, document.createTextNode(texto));
+      resumo.appendChild(li);
+    });
+
+    // Resposta já gravada
+    if (salvo && salvo.vai) {
+      let t = 'Você já respondeu: ' + textoPresenca(salvo.vai, salvo.adultos, salvo.criancas).replace(/^V/, 'v').replace(/^N/, 'n') + '.';
+      const p = textoPresente(salvo.modo || 'nao_sei', meus);
+      if (p) t += ' Presente: ' + p + '.';
+      resumoSalvo.textContent = t + ' Se algo mudou, é só alterar e enviar de novo.';
+      resumoSalvo.hidden = false;
+    } else {
+      resumoSalvo.hidden = true;
+    }
+
+    enviar.disabled = esperando;
+    enviar.textContent = esperando ? 'Enviando...' : (salvo ? 'Salvar alterações' : 'Enviar resposta');
+    const pendente = carregou && snapshot() !== estadoSalvo;
+    pilula.textContent = (salvo ? 'Salvar alterações' : 'Enviar resposta') + ' ↓';
+    pilula.hidden = !pendente || finalizarVisivel;
   }
 
-  function aplicar(resposta) {
-    if (resposta && resposta.itens) salvo = resposta.itens;
-    if (resposta && Array.isArray(resposta.reservas)) minhas = resposta.reservas;
-  }
-
-  async function carregar() {
-    if (esperando) return;
-    esperando = true;
-    status.textContent = 'Atualizando a lista...';
-    atualizarControles();
-    try {
-      const resposta = await chamada({acao: 'meus'});
-      if (!resposta || !resposta.ok || !resposta.itens) throw new Error('Versão incompatível do Apps Script');
-      aplicar(resposta);
-      if (primeiraCarga) {
-        primeiraCarga = false;
-        preencherPresenca(resposta.presenca);
+  // ---------- Dados da planilha ----------
+  function aplicar(r, preencherTudo) {
+    if (r.itens) disp = r.itens;
+    if (r.meus) meus = r.meus;
+    if (preencherTudo) {
+      salvo = r.presenca || null;
+      escolha = {...meus};
+      if (salvo) {
+        if (salvo.nome) nome.value = salvo.nome;
+        if (salvo.vai) marcar('vai', salvo.vai);
+        adultos.value = String(limitar(salvo.adultos || 1, 1, 8));
+        criancas.value = String(limitar(salvo.criancas, 0, 6));
+        if (salvo.modo) marcar('modo', salvo.modo);
       }
-      status.textContent = 'Lista atualizada. Marque o que você vai levar, escreva seu nome e confirme.';
-    } catch (e) {
-      salvo = null; // Falha segura: nunca prometer reserva sem conexão.
-      status.textContent = 'Não foi possível carregar a lista agora. Tente de novo em "Atualizar lista".';
-    } finally {
-      esperando = false;
-      atualizarControles();
+    } else {
+      Object.keys(escolha).forEach(id => { escolha[id] = limitar(escolha[id], 0, maxDe(id)); });
     }
   }
 
-  async function reservarEscolhidos() {
+  async function carregar(primeira) {
     if (esperando) return;
-    const lista = caixas.filter(c => c.checked);
-    if (!lista.length) return;
-    const convidado = nome.value.trim();
-    if (!convidado) {
-      status.textContent = 'Escreva seu nome antes de confirmar.';
+    esperando = true;
+    status.textContent = primeira ? '' : 'Atualizando a lista...';
+    render();
+    try {
+      const r = await chamada({acao: 'meus'});
+      if (!r || !r.ok || !r.itens) throw new Error('Versão incompatível do Apps Script');
+      aplicar(r, primeira);
+      if (primeira) estadoSalvo = snapshot();
+      if (!primeira) status.textContent = 'Lista atualizada.';
+      carregou = true;
+    } catch (e) {
+      disp = null; // Falha segura: nunca prometer reserva sem conexão.
+      status.textContent = 'Não foi possível carregar a lista agora. Tente de novo em “Atualizar lista”.';
+    } finally {
+      esperando = false;
+      render();
+    }
+  }
+
+  // ---------- Enviar ----------
+  form.addEventListener('submit', async ev => {
+    ev.preventDefault();
+    if (esperando) return;
+    const n = nome.value.trim();
+    const vai = radio('vai');
+    const modo = modoEfetivo();
+    if (!n) {
+      status.textContent = 'Escreva seu nome lá em cima.';
       nome.focus();
       return;
     }
-    const resumo = lista.map(c => '• 1 ' + unidade(c) + ': ' + titulo(c)).join('\n');
-    if (!window.confirm('Confirmar em nome de ' + convidado + '?\n\n' + resumo)) return;
-
-    esperando = true;
-    atualizarControles();
-    status.textContent = 'Registrando seus presentes...';
-    const ok = [];
-    const falhas = [];
-    let caiu = false;
-
-    for (const caixa of lista) {
-      const reqid = 'ciro-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2);
-      try {
-        const resposta = await chamada({acao: 'reservar', item: caixa.dataset.item, nome: convidado, reqid: reqid});
-        aplicar(resposta);
-        if (resposta && resposta.ok) {
-          ok.push(titulo(caixa));
-          caixa.checked = false;
-        } else {
-          falhas.push(titulo(caixa) + (resposta && resposta.erro ? ' (' + resposta.erro + ')' : ''));
-        }
-      } catch (e) {
-        caiu = true;
-        falhas.push(titulo(caixa) + ' (sem confirmação)');
-        break;
-      }
+    if (!vai) {
+      status.textContent = 'Conta pra gente se você vem (lá em cima).';
+      form.querySelector('input[name="vai"]').focus();
+      return;
+    }
+    if (modo === 'lista' && total() === 0) {
+      status.textContent = 'Escolha a quantidade de algum item, ou marque outra opção em “E o presente?”.';
+      $('modo').scrollIntoView({behavior: 'smooth', block: 'start'});
+      return;
+    }
+    if (modo === 'lista' && !disp) {
+      status.textContent = 'A lista ainda não carregou. Toque em “Atualizar lista” e tente de novo.';
+      return;
     }
 
-    const partes = [];
-    if (ok.length) partes.push('Prontinho, ' + convidado + '! Anotamos: ' + ok.join(', ') + '. Obrigada!');
-    if (falhas.length) partes.push('Não deu certo: ' + falhas.join(', ') + '.');
-    if (caiu) partes.push('A conexão caiu no meio do caminho. Confira em "Seus presentes" antes de tentar de novo.');
-    status.textContent = partes.join(' ');
-    if (ok.length) lembrarNome(convidado);
-
-    esperando = false;
-    atualizarControles();
-    if (caiu) carregar();
-  }
-
-  async function cancelar(reserva) {
-    if (esperando) return;
-    const t = tituloDoItem(reserva.item, reserva);
-    if (!window.confirm('Desfazer a reserva de: ' + t + '?')) return;
     esperando = true;
-    atualizarControles();
-    status.textContent = 'Desfazendo...';
+    status.textContent = '';
+    render();
     try {
-      const resposta = await chamada({acao: 'cancelar', reqid: reserva.reqid});
-      aplicar(resposta);
-      status.textContent = resposta && resposta.ok
-        ? 'Pronto, desfeito: ' + t + '. Se quiser, marque outra coisa.'
-        : (resposta && resposta.erro) || 'Não deu pra desfazer agora. Tente de novo.';
+      const r = await chamada({
+        acao: 'enviar',
+        nome: n,
+        vai: vai,
+        adultos: vai === 'sim' ? adultos.value : 0,
+        criancas: vai === 'sim' ? criancas.value : 0,
+        modo: modo,
+        itens: modo === 'lista' ? itensTexto(escolha) : ''
+      });
+      if (!r || !r.ok) {
+        if (r && r.itens) aplicar(r, false);
+        status.textContent = (r && r.erro) || 'Não deu pra enviar agora. Tente de novo.';
+      } else {
+        aplicar(r, true);
+        if (!radio('modo')) marcar('modo', modo);
+        estadoSalvo = snapshot();
+        gravarLocal('ciro-nome', n);
+        const primeiro = n.split(' ')[0];
+        let msg = vai === 'sim' ? 'Prontinho, ' + primeiro + '! Te esperamos lá.' : 'Obrigada por avisar, ' + primeiro + '!';
+        if (r.ajustes && r.ajustes.length) {
+          msg += ' Atenção: ' + r.ajustes.map(a => titulo(a.item) + (a.conseguido === 0
+            ? ' esgotou'
+            : ' (só ' + (a.conseguido === 1 ? 'sobrou 1' : 'sobraram ' + a.conseguido) + ')')).join(', ')
+            + '. Ajustamos a quantidade pra você.';
+        }
+        status.textContent = msg;
+      }
     } catch (e) {
-      status.textContent = 'Sem conexão agora. Clique em "Atualizar lista" e confira antes de tentar de novo.';
+      status.textContent = 'Sem conexão agora. Tente enviar de novo em instantes; não tem risco de duplicar.';
     } finally {
       esperando = false;
-      atualizarControles();
+      render();
     }
-  }
+  });
 
-  caixas.forEach(caixa => caixa.addEventListener('change', atualizarControles));
-  confirmar.addEventListener('click', reservarEscolhidos);
-  refresh.addEventListener('click', carregar);
+  form.addEventListener('input', () => { status.textContent = ''; render(); });
+  form.addEventListener('change', () => { status.textContent = ''; render(); });
+  refresh.addEventListener('click', () => carregar(!carregou));
 
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(entradas => {
       finalizarVisivel = entradas[0].isIntersecting;
-      atualizarControles();
+      render();
     }).observe(finalizar);
   }
 
-  atualizarPresencaUI();
-  carregar();
+  carregar(true);
 })();
 </script>
 
