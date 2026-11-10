@@ -170,21 +170,75 @@ main { width: 100%; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 
-/* Reservas integradas com a planilha: cada cartão representa um tipo de presente. */
-.reserva-identificacao { margin: 18px auto 24px; padding: 18px; max-width: 690px; border: 3px dashed var(--line); border-radius: 23px; background: var(--surface); }
-.reserva-identificacao label { display: block; margin-bottom: 8px; color: var(--ink); font-weight: 600; }
-.reserva-nome-linha { display: flex; gap: 10px; align-items: stretch; }
-.reserva-nome-linha input { flex: 1 1 230px; min-width: 0; min-height: 50px; border: 2px solid var(--line); background: var(--bg); color: var(--ink); border-radius: 12px; font: inherit; font-size: 16px; padding: 10px 14px; }
-.reserva-nome-linha input:focus-visible, .presente-reservar:focus-visible, .atualizar-vagas:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
-.atualizar-vagas { flex: 0 0 auto; border: 2px solid var(--teal); border-radius: 12px; background: transparent; color: var(--ink); font: inherit; font-weight: 600; padding: 10px 16px; cursor: pointer; min-height: 50px; }
-.reserva-status { margin: 10px 0 0; color: var(--muted); font-size: .91rem; min-height: 1.5em; }
+[hidden] { display: none !important; }
+
+/* Confirmação de presença (RSVP) — vem antes da lista de presentes */
+.rsvp { max-width: 520px; margin: 28px auto 0; padding: 24px 22px; background: var(--surface); border: 3px dashed var(--line); border-radius: 28px; scroll-margin-top: 16px; }
+.rsvp h2 { font-family: Pacifico, "Brush Script MT", cursive; font-weight: 400; font-size: clamp(1.7rem, 5vw, 2.3rem); margin: 0 0 .2em; }
+.rsvp p { color: var(--muted); margin: 8px auto; max-width: 40ch; }
+.rsvp-botao { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; margin-top: 10px; padding: 12px 28px; border-radius: 999px; background: var(--teal); color: #fff; text-decoration: none; font-weight: 600; }
+.rsvp-botao:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
+.rsvp-aviso { font-weight: 500; color: var(--ink) !important; }
+
+/* Lista de presentes: cada cartão tem uma caixinha "vou levar" */
 .presente-disponibilidade { font-weight: 600; color: var(--ink) !important; margin-top: 9px !important; }
-.presente-card.esgotado { opacity: .75; }
+.presente-card.esgotado { opacity: .7; }
 .presente-card.esgotado .presente-disponibilidade { color: #B34837 !important; }
-.presente-reservar { width: 100%; min-height: 49px; border-radius: 13px; border: 0; background: var(--teal); color: #fff; padding: 11px 15px; font: inherit; font-weight: 600; font-size: 16px; cursor: pointer; margin-top: 7px; }
-.presente-reservar:disabled { opacity: .55; cursor: not-allowed; }
+.presente-card.escolhido { border-color: var(--teal); box-shadow: 0 0 0 3px var(--sun); }
 .card-link { margin-top: auto; }
-@media(max-width: 540px){ .reserva-nome-linha { flex-direction: column; } .atualizar-vagas { width: 100%; } .reserva-identificacao { padding: 14px; } }
+.presente-escolha { display: flex; align-items: center; gap: 12px; margin-top: 8px; padding: 12px 14px; min-height: 52px; border: 2px solid var(--line); border-radius: 14px; background: var(--bg); color: var(--ink); font-weight: 600; cursor: pointer; }
+.presente-escolha input { flex: 0 0 auto; width: 24px; height: 24px; margin: 0; accent-color: var(--teal); cursor: pointer; }
+.presente-escolha:has(input:focus-visible) { outline: 3px solid var(--teal); outline-offset: 2px; }
+.presente-card.escolhido .presente-escolha { background: var(--sun); border-color: var(--teal); color: #07365A; }
+.presente-card.esgotado .presente-escolha { cursor: not-allowed; text-decoration: line-through; }
+.presente-escolha input:disabled { cursor: not-allowed; }
+
+/* Bloco final: nome + confirmar */
+.finalizar { max-width: 690px; margin: 26px auto 0; padding: 20px; border: 3px dashed var(--line); border-radius: 23px; background: var(--surface); text-align: left; scroll-margin-top: 16px; scroll-margin-bottom: 16px; }
+.finalizar h3 { margin: 0 0 4px; font-size: 1.2rem; }
+.finalizar-dica { margin: 0; color: var(--muted); font-size: .94rem; }
+.finalizar label { display: block; margin: 14px 0 6px; font-weight: 600; }
+.finalizar input[type="text"] { display: block; width: 100%; height: 50px; padding: 0 14px; border: 2px solid var(--line); border-radius: 12px; background: var(--bg); color: var(--ink); font: inherit; font-size: 16px; }
+.finalizar-acoes { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.confirmar-presentes { flex: 1 1 220px; min-height: 50px; border: 0; border-radius: 12px; background: var(--teal); color: #fff; font: inherit; font-weight: 600; font-size: 16px; padding: 10px 16px; cursor: pointer; }
+.confirmar-presentes:disabled { opacity: .55; cursor: not-allowed; }
+.atualizar-lista { flex: 0 0 auto; min-height: 50px; border: 2px solid var(--teal); border-radius: 12px; background: transparent; color: var(--ink); font: inherit; font-weight: 600; padding: 10px 16px; cursor: pointer; }
+.finalizar input:focus-visible, .confirmar-presentes:focus-visible, .atualizar-lista:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+.reserva-status { margin: 12px 0 0; color: var(--muted); font-size: .92rem; min-height: 1.5em; }
+
+/* Pílula flutuante que leva ao bloco final quando há presentes marcados */
+.pilula { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 10; display: inline-flex; align-items: center; min-height: 48px; padding: 10px 20px; border-radius: 999px; background: var(--teal); color: #fff; text-decoration: none; font-weight: 600; box-shadow: 0 6px 20px rgba(7,54,90,.3); white-space: nowrap; }
+.pilula:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
+
+@media (max-width: 540px) {
+  .finalizar { padding: 16px 14px; }
+  .finalizar-acoes { flex-direction: column; }
+  .confirmar-presentes, .atualizar-lista { flex: 0 0 auto; width: 100%; }
+  .rsvp { padding: 20px 14px; }
+  .rsvp-botao { width: 100%; }
+}
+
+/* Mapa do local da festa */
+.mapa { margin-top: 20px; }
+.mapa-frame {
+  position: relative; width: 100%; aspect-ratio: 4 / 3;
+  border-radius: 20px; overflow: hidden; border: 3px solid var(--line);
+  background: var(--bg);
+}
+.mapa-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.mapa-botoes { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 14px; }
+.mapa-botoes a {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 46px;
+  padding: 10px 18px; border-radius: 999px; text-decoration: none; font-weight: 600;
+  background: var(--teal); color: #fff;
+}
+.mapa-botoes a:nth-child(2) { background: var(--surface); color: var(--ink); border: 2px solid var(--line); }
+.mapa-botoes a:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
+@media (max-width: 420px) {
+  .mapa-frame { aspect-ratio: 1 / 1; }
+  .mapa-botoes { flex-direction: column; }
+  .mapa-botoes a { width: 100%; }
+}
 
 </style>
 </head>
@@ -195,9 +249,9 @@ main { width: 100%; }
   <h1>Bloquinho do<br>Fundo do Mar</h1>
   <p class="sub">Chá do Ciro</p>
   <p class="lead">Venha celebrar com a gente esse mergulho na nova fase!</p>
-  <nav class="atalhos" aria-label="Ir para as opções de presente">
-    <a href="#presentes">Ver lista de presentes</a>
-    <a href="#pix">Presentear por Pix</a>
+  <nav class="atalhos" aria-label="Atalhos da página">
+    <a href="#rsvp">Confirmar presença</a>
+    <a href="#presentes">Lista de presentes</a>
   </nav>
 
 </header>
@@ -206,25 +260,34 @@ main { width: 100%; }
     <dl>
       <dt>Quando</dt><dd class="big">sábado, 5 de dezembro</dd>
       <dt>Horário</dt><dd>14h</dd>
-      <dt>Onde</dt><dd class="soon">r. irmã carolina, 50 - belenzinho - bloco A </dd>
+      <dt>Onde</dt><dd>R. Irmã Carolina, 50 · Belenzinho · Bloco A</dd>
     </dl>
+    <div class="mapa">
+      <div class="mapa-frame">
+        <iframe
+          src="https://maps.google.com/maps?q=Rua+Irm%C3%A3+Carolina%2C+50+-+Belenzinho%2C+S%C3%A3o+Paulo+-+SP&z=16&output=embed"
+          title="Mapa do local da festa: Rua Irmã Carolina, 50, Belenzinho, São Paulo"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+      <div class="mapa-botoes">
+        <a href="https://www.google.com/maps/search/?api=1&query=Rua+Irm%C3%A3+Carolina%2C+50+-+Belenzinho%2C+S%C3%A3o+Paulo+-+SP" target="_blank" rel="noopener noreferrer">Abrir no Google Maps ↗</a>
+        <a href="https://waze.com/ul?q=Rua%20Irm%C3%A3%20Carolina%2C%2050%2C%20Belenzinho%2C%20S%C3%A3o%20Paulo&navigate=yes" target="_blank" rel="noopener noreferrer">Ir com Waze ↗</a>
+      </div>
+    </div>
   </section>
-  <p class="note">A confirmação de presença chega aqui em breve.</p>
+  <section class="rsvp" id="rsvp" aria-labelledby="rsvp-t">
+    <h2 id="rsvp-t">Vai mergulhar com a gente?</h2>
+    <p>Confirme sua presença pra gente organizar tudo direitinho.</p>
+    <a class="rsvp-botao" id="rsvp-botao" href="#rsvp" target="_blank" rel="noopener noreferrer" hidden>Confirmar presença <span aria-hidden="true">↗</span></a>
+    <p class="rsvp-aviso" id="rsvp-aviso">O formulário de confirmação chega aqui em breve.</p>
+  </section>
 
   <section class="presentes" id="presentes" aria-labelledby="presentes-t">
   <div class="presente-intro">
-    <span class="secao-selo">Lista de presentes do Ciro</span>
-    <h2 id="presentes-t">Escolha um carinho para o Ciro</h2>
-    <p>São <strong>56 oportunidades de presentear</strong> em oito tipos de presente. Cada reserva corresponde a <strong>1 pacote, 1 kit ou 1 unidade</strong>, conforme a descrição.</p>
-    <p class="presente-aviso">As vagas são compartilhadas. Quando todas as unidades de um produto forem reservadas, ele aparecerá como esgotado para os próximos convidados.</p>
-  </div>
-  <div class="reserva-identificacao">
-    <label for="nome-convidado">Seu nome completo</label>
-    <div class="reserva-nome-linha">
-      <input id="nome-convidado" maxlength="60" autocomplete="name" placeholder="Nome de quem vai presentear" required>
-      <button type="button" class="atualizar-vagas" id="atualizar-vagas">Atualizar vagas</button>
-    </div>
-    <p id="status-reservas" role="status" aria-live="polite" class="reserva-status">Consultando os presentes disponíveis...</p>
+    <span class="secao-selo">Lista de presentes</span>
+    <h2 id="presentes-t">O que você vai levar pro Ciro?</h2>
+    <p>Se quiser presentear, marque a caixinha do que vai levar. Cada caixinha vale <strong>1 pacote, 1 kit ou 1 unidade</strong>, e dá pra marcar mais de uma.</p>
+    <p class="presente-aviso">A lista é compartilhada: quando todos de um item forem escolhidos, ele aparece como esgotado pra quem vier depois.</p>
   </div>
   <div class="presentes-grade">
     <article class="presente-card" data-id="FR_RN">
@@ -232,64 +295,76 @@ main { width: 100%; }
        <h3>Fralda Pampers Confort Sec RN</h3>
        <p>36 fraldas por pacote · 288 fraldas no total</p>
        <p class="presente-disponibilidade" data-saldo="FR_RN">Consultando disponibilidade...</p>
-       
+
        <a class="card-link" href="https://www.google.com/search?q=Fralda+Pampers+Confort+Sec+RN+pacote+36+unidades" target="_blank" rel="noopener noreferrer" aria-label="Buscar Fralda Pampers Confort Sec RN pacote 36 unidades no Google">Buscar no Google <span aria-hidden="true">↗</span></a>
-       <button type="button" class="presente-reservar" data-reservar="FR_RN" disabled>Carregando reserva...</button>
+       <label class="presente-escolha"><input type="checkbox" data-item="FR_RN" data-unidade="pacote" disabled><span class="presente-escolha-texto">Carregando...</span></label>
     </article><article class="presente-card" data-id="FR_P">
        <div class="presente-cabecalho"><span class="presente-categoria">Fraldas</span><span class="presente-qt">6 pacotes</span></div>
        <h3>Fralda Pampers Confort Sec P</h3>
        <p>72 fraldas por pacote · 432 fraldas no total</p>
        <p class="presente-disponibilidade" data-saldo="FR_P">Consultando disponibilidade...</p>
-       
+
        <a class="card-link" href="https://www.google.com/search?q=Fralda+Pampers+Confort+Sec+P+pacote+72+unidades" target="_blank" rel="noopener noreferrer" aria-label="Buscar Fralda Pampers Confort Sec P pacote 72 unidades no Google">Buscar no Google <span aria-hidden="true">↗</span></a>
-       <button type="button" class="presente-reservar" data-reservar="FR_P" disabled>Carregando reserva...</button>
+       <label class="presente-escolha"><input type="checkbox" data-item="FR_P" data-unidade="pacote" disabled><span class="presente-escolha-texto">Carregando...</span></label>
     </article><article class="presente-card" data-id="GRANADO">
        <div class="presente-cabecalho"><span class="presente-categoria">Higiene</span><span class="presente-qt">6 unidades</span></div>
        <h3>Granado Água de Limpeza Bebê, Peles Sensíveis, 500 ml</h3>
        <p>Frasco de 500 ml, para peles sensíveis.</p>
        <p class="presente-disponibilidade" data-saldo="GRANADO">Consultando disponibilidade...</p>
        <a class="card-link" href="https://a.co/d/0is0hP3c" target="_blank" rel="noopener noreferrer">Ver produto na Amazon <span aria-hidden="true">↗</span></a>
-       <button type="button" class="presente-reservar" data-reservar="GRANADO" disabled>Carregando reserva...</button>
+       <label class="presente-escolha"><input type="checkbox" data-item="GRANADO" data-unidade="frasco" disabled><span class="presente-escolha-texto">Carregando...</span></label>
     </article><article class="presente-card" data-id="ALGODAO">
        <div class="presente-cabecalho"><span class="presente-categoria">Higiene</span><span class="presente-qt">12 pacotes</span></div>
        <h3>Algodão quadrado</h3>
        <p>100 quadrados por pacote · 1.200 unidades no total</p>
        <p class="presente-disponibilidade" data-saldo="ALGODAO">Consultando disponibilidade...</p>
        <a class="card-link" href="https://a.co/d/0hyyQZiv" target="_blank" rel="noopener noreferrer">Ver produto na Amazon <span aria-hidden="true">↗</span></a>
-       <button type="button" class="presente-reservar" data-reservar="ALGODAO" disabled>Carregando reserva...</button>
+       <label class="presente-escolha"><input type="checkbox" data-item="ALGODAO" data-unidade="pacote" disabled><span class="presente-escolha-texto">Carregando...</span></label>
     </article><article class="presente-card" data-id="LENCO_RN">
        <div class="presente-cabecalho"><span class="presente-categoria">Higiene</span><span class="presente-qt">6 kits</span></div>
        <h3>Lenços umedecidos Johnson’s Baby RN</h3>
        <p>1 reserva = 1 kit com 192 lenços · 1.152 lenços no total</p>
        <p class="presente-disponibilidade" data-saldo="LENCO_RN">Consultando disponibilidade...</p>
        <a class="card-link" href="https://a.co/d/0cF6d8ZC" target="_blank" rel="noopener noreferrer">Ver produto na Amazon <span aria-hidden="true">↗</span></a>
-       <button type="button" class="presente-reservar" data-reservar="LENCO_RN" disabled>Carregando reserva...</button>
+       <label class="presente-escolha"><input type="checkbox" data-item="LENCO_RN" data-unidade="kit" disabled><span class="presente-escolha-texto">Carregando...</span></label>
     </article><article class="presente-card" data-id="BODY_RN">
        <div class="presente-cabecalho"><span class="presente-categoria">Roupinhas</span><span class="presente-qt">6 unidades</span></div>
        <h3>Body RN</h3>
        <p>1 body tamanho recém-nascido por reserva.</p>
        <p class="presente-disponibilidade" data-saldo="BODY_RN">Consultando disponibilidade...</p>
-       
+
        <a class="card-link" href="https://www.google.com/search?q=body+rec%C3%A9m-nascido+RN+beb%C3%AA" target="_blank" rel="noopener noreferrer" aria-label="Buscar body recém-nascido RN bebê no Google">Buscar no Google <span aria-hidden="true">↗</span></a>
-       <button type="button" class="presente-reservar" data-reservar="BODY_RN" disabled>Carregando reserva...</button>
+       <label class="presente-escolha"><input type="checkbox" data-item="BODY_RN" data-unidade="body" disabled><span class="presente-escolha-texto">Carregando...</span></label>
     </article><article class="presente-card" data-id="BODY_P">
        <div class="presente-cabecalho"><span class="presente-categoria">Roupinhas</span><span class="presente-qt">8 unidades</span></div>
        <h3>Body P</h3>
        <p>1 body tamanho P por reserva.</p>
        <p class="presente-disponibilidade" data-saldo="BODY_P">Consultando disponibilidade...</p>
-       
+
        <a class="card-link" href="https://www.google.com/search?q=body+beb%C3%AA+tamanho+P" target="_blank" rel="noopener noreferrer" aria-label="Buscar body bebê tamanho P no Google">Buscar no Google <span aria-hidden="true">↗</span></a>
-       <button type="button" class="presente-reservar" data-reservar="BODY_P" disabled>Carregando reserva...</button>
+       <label class="presente-escolha"><input type="checkbox" data-item="BODY_P" data-unidade="body" disabled><span class="presente-escolha-texto">Carregando...</span></label>
     </article><article class="presente-card" data-id="MAM_130">
        <div class="presente-cabecalho"><span class="presente-categoria">Mamadeiras</span><span class="presente-qt">4 unidades</span></div>
        <h3>MAM Baby Easy Start 130 ml</h3>
        <p>Mamadeira anticólica, autoesterilizável, 0+ meses, bico SkinSoft, cor neutra.</p>
        <p class="presente-disponibilidade" data-saldo="MAM_130">Consultando disponibilidade...</p>
        <a class="card-link" href="https://a.co/d/078ryeCF" target="_blank" rel="noopener noreferrer">Ver produto na Amazon <span aria-hidden="true">↗</span></a>
-       <button type="button" class="presente-reservar" data-reservar="MAM_130" disabled>Carregando reserva...</button>
+       <label class="presente-escolha"><input type="checkbox" data-item="MAM_130" data-unidade="mamadeira" disabled><span class="presente-escolha-texto">Carregando...</span></label>
     </article>
   </div>
-  <p class="presentes-rodape">Prefere contribuir de outra maneira? O Pix também está disponível mais abaixo, sem valor mínimo sugerido.</p>
+  <div class="finalizar" id="finalizar">
+    <h3>Pra finalizar</h3>
+    <p class="finalizar-dica">Escreva seu nome e confirme o que você marcou.</p>
+    <label for="nome-convidado">Seu nome</label>
+    <input id="nome-convidado" type="text" maxlength="60" autocomplete="name" placeholder="Ex.: Maria Silva" enterkeyhint="done">
+    <div class="finalizar-acoes">
+      <button type="button" class="confirmar-presentes" id="confirmar-presentes" disabled>Marque pelo menos 1 presente</button>
+      <button type="button" class="atualizar-lista" id="atualizar-lista">Atualizar lista</button>
+    </div>
+    <p id="status-reservas" role="status" aria-live="polite" class="reserva-status">Carregando a lista...</p>
+  </div>
+  <p class="presentes-rodape">Escolheu errado ou quer trocar? Fale com a organização que a gente ajusta na planilha. E, se preferir, também dá pra presentear por Pix logo abaixo.</p>
+  <a class="pilula" id="pilula-escolhidos" href="#finalizar" hidden>Finalizar ↓</a>
 </section>
 
   <section class="pix" id="pix" aria-labelledby="pix-t">
@@ -318,10 +393,14 @@ main { width: 100%; }
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz9Qm578Oz_4vkEOOYtVqohTpU70jwUYErEeWCNRQBcjWFkrIcXzxnPcNlbPgnCl4GR/exec";
   const nome = document.getElementById('nome-convidado');
   const status = document.getElementById('status-reservas');
-  const refresh = document.getElementById('atualizar-vagas');
-  const buttons = [...document.querySelectorAll('[data-reservar]')];
+  const refresh = document.getElementById('atualizar-lista');
+  const confirmar = document.getElementById('confirmar-presentes');
+  const pilula = document.getElementById('pilula-escolhidos');
+  const finalizar = document.getElementById('finalizar');
+  const caixas = [...document.querySelectorAll('[data-item]')];
   let salvo = null;
   let esperando = false;
+  let finalizarVisivel = false;
 
   function chamada(params) {
     return new Promise((resolve, reject) => {
@@ -345,82 +424,146 @@ main { width: 100%; }
     });
   }
 
+  function titulo(caixa) {
+    return caixa.closest('.presente-card').querySelector('h3').textContent;
+  }
+
+  function unidade(caixa) {
+    const item = salvo && salvo[caixa.dataset.item];
+    return caixa.dataset.unidade || (item && item.unidadeSingular) || 'unidade';
+  }
+
   function atualizarControles() {
-    buttons.forEach(botao => {
-      const id = botao.dataset.reservar;
-      const item = salvo && salvo[id];
-      const card = botao.closest('.presente-card');
+    caixas.forEach(caixa => {
+      const item = salvo && salvo[caixa.dataset.item];
+      const card = caixa.closest('.presente-card');
       const texto = card.querySelector('[data-saldo]');
+      const rotulo = card.querySelector('.presente-escolha-texto');
       if (!item) {
         texto.textContent = 'Disponibilidade ainda não confirmada';
-        botao.textContent = 'Reserva indisponível';
-        botao.disabled = true;
+        rotulo.textContent = 'Indisponível no momento';
+        caixa.checked = false;
+        caixa.disabled = true;
+        card.classList.remove('escolhido', 'esgotado');
         return;
       }
       const restam = Math.max(0, Number(item.restam));
-      texto.textContent = restam === 0
-        ? 'Esgotado: ' + item.total + ' de ' + item.total + ' reservados'
-        : restam + ' de ' + item.total + ' disponíveis';
-      card.classList.toggle('esgotado', restam === 0);
-      botao.disabled = esperando || restam === 0;
-      botao.textContent = restam === 0 ? 'Esgotado' : (esperando ? 'Aguarde...' : 'Reservar 1 ' + (item.unidadeSingular || 'presente'));
+      const esgotado = restam === 0;
+      texto.textContent = esgotado
+        ? 'Esgotado: todos já foram escolhidos'
+        : (restam === 1 ? 'Falta só 1' : 'Faltam ' + restam) + ' de ' + item.total;
+      if (esgotado) caixa.checked = false;
+      caixa.disabled = esperando || esgotado;
+      rotulo.textContent = esgotado ? 'Esgotado' : 'Vou levar 1 ' + unidade(caixa);
+      card.classList.toggle('esgotado', esgotado);
+      card.classList.toggle('escolhido', caixa.checked);
     });
+    const n = caixas.filter(c => c.checked).length;
+    confirmar.disabled = esperando || n === 0;
+    confirmar.textContent = esperando
+      ? 'Aguarde...'
+      : n === 0 ? 'Marque pelo menos 1 presente'
+      : n === 1 ? 'Confirmar 1 presente'
+      : 'Confirmar ' + n + ' presentes';
+    pilula.textContent = (n === 1 ? '1 presente marcado' : n + ' presentes marcados') + ' · finalizar ↓';
+    pilula.hidden = n === 0 || finalizarVisivel;
   }
 
   async function carregar() {
     if (esperando) return;
     esperando = true;
-    status.textContent = 'Atualizando disponibilidade...';
+    status.textContent = 'Atualizando a lista...';
     atualizarControles();
     try {
       const resposta = await chamada({acao:'listar'});
       if (!resposta || !resposta.ok || !resposta.itens) throw new Error('Versão incompatível do Apps Script');
       salvo = resposta.itens;
-      status.textContent = 'Vagas atualizadas. Informe seu nome e reserve o presente desejado.';
+      status.textContent = 'Lista atualizada. Marque o que você vai levar, escreva seu nome e confirme.';
     } catch (e) {
       salvo = null; // Falha segura: nunca prometer reserva sem conexão.
-      status.textContent = 'Não foi possível consultar as vagas. Verifique se o Apps Script novo foi implantado e clique em Atualizar vagas.';
+      status.textContent = 'Não foi possível carregar a lista agora. Tente de novo em "Atualizar lista".';
     } finally {
       esperando = false;
       atualizarControles();
     }
   }
 
-  async function reservar(id, botao) {
-    if (esperando || !salvo || !salvo[id] || salvo[id].restam < 1) return;
+  async function reservarEscolhidos() {
+    if (esperando) return;
+    const lista = caixas.filter(c => c.checked);
+    if (!lista.length) return;
     const convidado = nome.value.trim();
     if (!convidado) {
-      status.textContent = 'Escreva seu nome completo antes de reservar.';
+      status.textContent = 'Escreva seu nome antes de confirmar.';
       nome.focus();
       return;
     }
-    const titulo = botao.closest('.presente-card').querySelector('h3').textContent;
-    if (!window.confirm('Confirmar a reserva de 1 presente: ' + titulo + '?')) return;
+    const resumo = lista.map(c => '• 1 ' + unidade(c) + ': ' + titulo(c)).join('\n');
+    if (!window.confirm('Confirmar em nome de ' + convidado + '?\n\n' + resumo + '\n\nDepois de confirmado, só a organização consegue alterar.')) return;
+
     esperando = true;
     atualizarControles();
-    status.textContent = 'Registrando sua reserva...';
-    const reqid = 'ciro-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2);
-    try {
-      const resposta = await chamada({acao:'reservar', item:id, nome:convidado, reqid:reqid});
-      if (resposta && resposta.itens) salvo = resposta.itens;
-      if (!resposta || !resposta.ok) {
-        status.textContent = (resposta && resposta.erro) || 'Reserva não confirmada. Atualize a lista antes de tentar de novo.';
-      } else {
-        status.textContent = 'Reserva confirmada para ' + convidado + ': 1 presente de ' + titulo + '. Obrigada!';
-        nome.value = '';
+    status.textContent = 'Registrando seus presentes...';
+    const ok = [];
+    const falhas = [];
+    let caiu = false;
+
+    for (const caixa of lista) {
+      const reqid = 'ciro-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2);
+      try {
+        const resposta = await chamada({acao:'reservar', item:caixa.dataset.item, nome:convidado, reqid:reqid});
+        if (resposta && resposta.itens) salvo = resposta.itens;
+        if (resposta && resposta.ok) {
+          ok.push(titulo(caixa));
+          caixa.checked = false;
+        } else {
+          falhas.push(titulo(caixa) + (resposta && resposta.erro ? ' (' + resposta.erro + ')' : ''));
+        }
+      } catch (e) {
+        caiu = true;
+        falhas.push(titulo(caixa) + ' (sem confirmação)');
+        break;
       }
-    } catch (e) {
-      salvo = null;
-      status.textContent = 'Não foi possível confirmar a reserva. Consulte a planilha antes de repetir, para evitar duplicidade.';
-    } finally {
-      esperando = false;
-      atualizarControles();
     }
+
+    const partes = [];
+    if (ok.length) partes.push('Prontinho, ' + convidado + '! Anotamos: ' + ok.join(', ') + '. Obrigada!');
+    if (falhas.length) partes.push('Não deu certo: ' + falhas.join(', ') + '.');
+    if (caiu) partes.push('A conexão caiu no meio do caminho. Antes de tentar de novo, fale com a organização pra não duplicar.');
+    status.textContent = partes.join(' ');
+    if (ok.length && !falhas.length) nome.value = '';
+
+    esperando = false;
+    atualizarControles();
+    if (caiu) carregar();
   }
 
-  buttons.forEach(botao => botao.addEventListener('click', () => reservar(botao.dataset.reservar, botao)));
+  caixas.forEach(caixa => caixa.addEventListener('change', atualizarControles));
+  confirmar.addEventListener('click', reservarEscolhidos);
   refresh.addEventListener('click', carregar);
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(entradas => {
+      finalizarVisivel = entradas[0].isIntersecting;
+      atualizarControles();
+    }).observe(finalizar);
+  }
+
   carregar();
+})();
+</script>
+
+<script>
+// Confirmação de presença: cole entre as aspas o link do Google Forms.
+(function () {
+  const RSVP_URL = "";
+  const botao = document.getElementById("rsvp-botao");
+  const aviso = document.getElementById("rsvp-aviso");
+  if (/^https:\/\//.test(RSVP_URL)) {
+    botao.href = RSVP_URL;
+    botao.hidden = false;
+    aviso.hidden = true;
+  }
 })();
 </script>
 
